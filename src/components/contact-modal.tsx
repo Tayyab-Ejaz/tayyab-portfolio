@@ -16,28 +16,20 @@ const initialForm: ContactFormFields = {
 };
 
 export function ContactModal({ profile }: ContactModalProps) {
-  const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<ContactFormFields>(initialForm);
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const openModal = () => setIsOpen(true);
-    window.addEventListener("contact:open", openModal);
+    const isOpen = window.location.hash === "#contact-form";
 
-    return () => {
-      window.removeEventListener("contact:open", openModal);
-    };
-  }, []);
-
-  useEffect(() => {
     if (!isOpen) {
       return;
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        window.location.hash = "contact";
       }
 
       if (event.key === "Tab" && dialogRef.current) {
@@ -71,12 +63,7 @@ export function ContactModal({ profile }: ContactModalProps) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen]);
-
-  const closeModal = () => {
-    setIsOpen(false);
-    window.setTimeout(() => setSubmitted(false), 220);
-  };
+  }, []);
 
   const handleChange =
     (field: keyof ContactFormFields) =>
@@ -92,7 +79,7 @@ export function ContactModal({ profile }: ContactModalProps) {
 
   return (
     <>
-      <section className="relative z-10 mx-auto mt-6 w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <section id="contact" className="relative z-10 mx-auto mt-6 w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,24,0.96),rgba(7,10,20,0.92))] px-6 py-8 sm:px-8 sm:py-10 lg:flex lg:items-end lg:justify-between lg:px-10">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)]">
@@ -106,28 +93,20 @@ export function ContactModal({ profile }: ContactModalProps) {
             </p>
           </div>
 
-          <button
-            type="button"
-            className="button-primary mt-8 lg:mt-0"
-            onClick={() => setIsOpen(true)}
-          >
+          <a href="#contact-form" className="button-primary mt-8 lg:mt-0">
             Start a Project Conversation
-          </button>
+          </a>
         </div>
       </section>
 
-      {isOpen ? (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
-          onClick={closeModal}
-        >
+      <div id="contact-form" className="modal-target fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm">
+        <a href="#contact" className="absolute inset-0" aria-label="Close contact form" />
           <div
             ref={dialogRef}
-            className="w-full max-w-2xl rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,16,34,1),rgba(6,10,22,0.98))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.45)] sm:p-8"
+            className="modal-panel relative w-full max-w-2xl rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,16,34,1),rgba(6,10,22,0.98))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.45)] sm:p-8"
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
-            onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -141,14 +120,13 @@ export function ContactModal({ profile }: ContactModalProps) {
                   Share a little context and I&apos;ll use it later when backend handling is connected. For now, this form is a polished frontend preview of the inquiry experience.
                 </p>
               </div>
-              <button
-                type="button"
+              <a
+                href="#contact"
                 className="icon-close"
-                onClick={closeModal}
                 aria-label="Close contact form"
               >
                 ×
-              </button>
+              </a>
             </div>
 
             {submitted ? (
@@ -226,7 +204,6 @@ export function ContactModal({ profile }: ContactModalProps) {
             )}
           </div>
         </div>
-      ) : null}
     </>
   );
 }
