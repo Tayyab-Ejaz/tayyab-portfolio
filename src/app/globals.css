@@ -497,10 +497,30 @@ button {
     scroll-behavior: auto !important;
   }
 
-  .reveal {
+  .reveal,
+  .reveal-pending,
+  .reveal-visible {
     opacity: 1;
     transform: none;
   }
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 650ms ease,
+    transform 650ms ease;
+}
+
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 

@@ -10,10 +10,14 @@ type HeroSectionProps = {
 };
 
 export function HeroSection({ profile }: HeroSectionProps) {
-  const [visibleStats, setVisibleStats] = useState([0, 0, 0]);
-  const [typedCommand, setTypedCommand] = useState("");
-  const [showJson, setShowJson] = useState(false);
   const command = profile.detailCommand;
+  const finalStats = useMemo(
+    () => portfolioData.heroStats.map((stat) => stat.value),
+    [],
+  );
+  const [visibleStats, setVisibleStats] = useState(finalStats);
+  const [typedCommand, setTypedCommand] = useState(command);
+  const [showJson, setShowJson] = useState(true);
   const jsonLines = useMemo(
     () => {
       const entries = Object.entries(profile.detailJson);
@@ -101,6 +105,18 @@ export function HeroSection({ profile }: HeroSectionProps) {
   };
 
   useEffect(() => {
+    const shouldAnimate =
+      window.matchMedia("(min-width: 768px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!shouldAnimate) {
+      return;
+    }
+
+    const startTimeout = window.setTimeout(() => {
+      setVisibleStats([0, 0, 0]);
+    }, 0);
+
     const statIntervals = portfolioData.heroStats.map((stat, index) => {
       const duration = 1400;
       const frames = 42;
@@ -125,10 +141,26 @@ export function HeroSection({ profile }: HeroSectionProps) {
       }, duration / frames);
     });
 
-    return () => statIntervals.forEach((id) => window.clearInterval(id));
-  }, []);
+    return () => {
+      window.clearTimeout(startTimeout);
+      statIntervals.forEach((id) => window.clearInterval(id));
+    };
+  }, [finalStats]);
 
   useEffect(() => {
+    const shouldAnimate =
+      window.matchMedia("(min-width: 768px)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!shouldAnimate) {
+      return;
+    }
+
+    const startTimeout = window.setTimeout(() => {
+      setTypedCommand("");
+      setShowJson(false);
+    }, 0);
+
     let index = 0;
     const typeInterval = window.setInterval(() => {
       setTypedCommand(command.slice(0, index + 1));
@@ -140,7 +172,10 @@ export function HeroSection({ profile }: HeroSectionProps) {
       }
     }, 70);
 
-    return () => window.clearInterval(typeInterval);
+    return () => {
+      window.clearTimeout(startTimeout);
+      window.clearInterval(typeInterval);
+    };
   }, [command]);
 
   return (
