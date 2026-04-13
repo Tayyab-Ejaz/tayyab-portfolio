@@ -160,7 +160,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
                 <div className="hero-portrait-grid" />
                 <div className="hero-portrait-image-wrap">
                   <Image
-                    src="/profile-placeholder.svg"
+                    src="/images/profile.webp"
                     alt={profile.imageAlt}
                     width={320}
                     height={380}
@@ -171,9 +171,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
        
               </div>
 
-              <p className="inline-flex items-center rounded-full border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-[var(--color-accent)]">
-                Full-Stack Engineer
-              </p>
+           
               <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl xl:text-6xl">
                 {profile.name}
               </h1>

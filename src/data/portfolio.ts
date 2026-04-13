@@ -87,7 +87,7 @@ export const portfolioData: {
   education: EducationEntry[];
 } = {
   profile: {
-    name: "Tayyab",
+    name: "Tayyab Ejaz",
     title: "Full-Stack Engineer Building Scalable SaaS & Data-Driven Platforms",
     intro:
       "I design and ship reliable web products with a backend-first mindset, polished frontend systems, and a bias toward measurable performance wins. My work spans SaaS tools, healthcare workflows, AI-adjacent products, and business platforms.",
