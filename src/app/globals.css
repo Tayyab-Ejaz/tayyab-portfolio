@@ -195,41 +195,19 @@ button {
   line-height: 1.9;
 }
 
-.json-header {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 0.9rem;
-  padding-bottom: 0.85rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.json-header-dot {
-  display: inline-flex;
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 999px;
-}
-
-.json-header-label {
-  margin-left: 0.35rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--color-text-soft);
+.json-pre {
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
 }
 
 .json-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 0.15rem;
+  min-height: 1.9em;
 }
 
 .json-indent {
   display: inline-block;
-  width: 1.25rem;
-  flex: 0 0 1.25rem;
+  white-space: pre;
 }
 
 .json-key {
@@ -253,25 +231,6 @@ button {
   color: #cbd5e1;
 }
 
-.json-array {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-  max-width: calc(100% - 8rem);
-}
-
-.json-array-items {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.35rem;
-}
-
-.json-array-item {
-  display: inline-flex;
-  gap: 0.2rem;
-  min-width: 0;
-}
-
 .social-chip {
   display: inline-flex;
   align-items: center;
@@ -292,8 +251,9 @@ button {
     radial-gradient(circle at top left, rgba(65, 224, 255, 0.16), transparent 34%),
     radial-gradient(circle at bottom right, rgba(142, 92, 255, 0.18), transparent 36%),
     linear-gradient(180deg, rgba(13, 21, 43, 0.96), rgba(7, 10, 20, 0.96));
-  min-height: 18rem;
-  padding: 1.25rem;
+  min-height: 13rem;
+  max-width: 13rem;
+  padding: 0.85rem;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
     0 24px 80px rgba(0, 0, 0, 0.32);
@@ -326,12 +286,12 @@ button {
   z-index: 2;
   margin: 0 auto;
   display: flex;
-  max-width: 19rem;
+  max-width: 12.5rem;
   justify-content: center;
 }
 
 .hero-portrait-image {
-  height: auto;
+  height: 12.5rem;
   width: 100%;
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -341,24 +301,7 @@ button {
 }
 
 .hero-portrait-overlay {
-  position: absolute;
-  inset: auto 1rem 1rem 1rem;
-  z-index: 3;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.hero-portrait-overlay span {
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(7, 11, 24, 0.72);
-  padding: 0.5rem 0.8rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-text);
-  backdrop-filter: blur(10px);
+  display: none;
 }
 
 .hero-portrait-orbit {

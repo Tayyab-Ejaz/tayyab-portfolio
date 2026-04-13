@@ -14,42 +14,90 @@ export function HeroSection({ profile }: HeroSectionProps) {
   const [typedCommand, setTypedCommand] = useState("");
   const [showJson, setShowJson] = useState(false);
   const command = profile.detailCommand;
-  const jsonContent = useMemo(
-    () => Object.entries(profile.detailJson),
+  const jsonLines = useMemo(
+    () => {
+      const entries = Object.entries(profile.detailJson);
+      const lines = ["{"];
+
+      entries.forEach(([key, value], index) => {
+        const serializedValue = Array.isArray(value)
+          ? `[${value.map((item) => JSON.stringify(item)).join(", ")}]`
+          : JSON.stringify(value);
+
+        lines.push(
+          `  ${JSON.stringify(key)}: ${serializedValue}${index === entries.length - 1 ? "" : ","}`,
+        );
+      });
+
+      lines.push("}");
+      return lines;
+    },
     [profile.detailJson],
   );
 
-  const renderJsonValue = (
-    value: string | number | boolean | string[],
-  ) => {
-    if (Array.isArray(value)) {
+  const renderJsonToken = (token: string) => {
+    if (token === "true" || token === "false") {
+      return <span className="json-boolean">{token}</span>;
+    }
+
+    if (/^-?\d+(\.\d+)?$/.test(token)) {
+      return <span className="json-number">{token}</span>;
+    }
+
+    if (/^".*"$/.test(token)) {
+      return <span className="json-value">{token}</span>;
+    }
+
+    return <span className="json-punctuation">{token}</span>;
+  };
+
+  const renderJsonLine = (line: string) => {
+    const indent = line.match(/^\s*/)?.[0] ?? "";
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      return null;
+    }
+
+    if (
+      trimmed === "{" ||
+      trimmed === "}" ||
+      trimmed === "[" ||
+      trimmed === "]" ||
+      trimmed === "]," ||
+      trimmed === "},"
+    ) {
       return (
-        <span className="json-array">
-          <span className="json-punctuation">[</span>
-          <span className="json-array-items">
-            {value.map((item, index) => (
-              <span key={`${item}-${index}`} className="json-array-item">
-                <span className="json-value">&quot;{item}&quot;</span>
-                {index === value.length - 1 ? null : (
-                  <span className="json-punctuation">,</span>
-                )}
-              </span>
-            ))}
-          </span>
-          <span className="json-punctuation">]</span>
-        </span>
+        <>
+          <span className="json-indent">{indent}</span>
+          <span className="json-punctuation">{trimmed}</span>
+        </>
       );
     }
 
-    if (typeof value === "number") {
-      return <span className="json-number">{value}</span>;
+    const keyValueMatch = trimmed.match(/^"([^"]+)":\s(.+?)(,)?$/);
+
+    if (keyValueMatch) {
+      const [, key, rawValue, trailingComma] = keyValueMatch;
+      return (
+        <>
+          <span className="json-indent">{indent}</span>
+          <span className="json-key">&quot;{key}&quot;</span>
+          <span className="json-punctuation">: </span>
+          {renderJsonToken(rawValue)}
+          {trailingComma ? (
+            <span className="json-punctuation">{trailingComma}</span>
+          ) : null}
+        </>
+      );
     }
 
-    if (typeof value === "boolean") {
-      return <span className="json-boolean">{String(value)}</span>;
-    }
-
-    return <span className="json-value">&quot;{value}&quot;</span>;
+    return (
+      <>
+        <span className="json-indent">{indent}</span>
+        {renderJsonToken(trimmed)}
+      </>
+    );
   };
 
   useEffect(() => {
@@ -120,11 +168,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
                     className="hero-portrait-image"
                   />
                 </div>
-                <div className="hero-portrait-overlay">
-                  <span>Engineer Portrait</span>
-                  <span>Tech-Grid Overlay</span>
-                  <span>Motion Ready</span>
-                </div>
+       
               </div>
 
               <p className="inline-flex items-center rounded-full border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-[var(--color-accent)]">
@@ -191,29 +235,15 @@ export function HeroSection({ profile }: HeroSectionProps) {
               <div
                 className={`json-viewer mt-6 w-full max-w-xl transition duration-700 ${showJson ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
               >
-                <div className="json-header">
-                  <span className="json-header-dot bg-cyan-400" />
-                  <span className="json-header-dot bg-violet-400" />
-                  <span className="json-header-dot bg-emerald-400" />
-                  <span className="json-header-label">structured profile payload</span>
-                </div>
-                <div className="json-line">
-                  <span className="json-punctuation">{"{"}</span>
-                </div>
-                {jsonContent.map(([key, value], index) => (
-                  <div key={key} className="json-line">
-                    <span className="json-indent" />
-                    <span className="json-key">&quot;{key}&quot;</span>
-                    <span className="json-punctuation">: </span>
-                    {renderJsonValue(value)}
-                    <span className="json-punctuation">
-                      {index === jsonContent.length - 1 ? "" : ","}
-                    </span>
-                  </div>
-                ))}
-                <div className="json-line">
-                  <span className="json-punctuation">{"}"}</span>
-                </div>
+                <pre className="json-pre">
+                  <code>
+                    {jsonLines.map((line, index) => (
+                      <div key={`${line}-${index}`} className="json-line">
+                        {renderJsonLine(line)}
+                      </div>
+                    ))}
+                  </code>
+                </pre>
               </div>
             </div>
 
