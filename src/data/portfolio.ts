@@ -275,8 +275,9 @@ export const portfolioData: {
           alt: "MyToolkitt homepage screenshot",
           label: "Homepage",
           featured: true,
-        },{
-          src: "/images/projects/biomark-dashboard.svg",
+        },
+        {
+          src: "/images/projects/biomarking1.webp",
           alt: "MyToolkitt homepage screenshot",
           label: "Homepage",
           featured: true,
@@ -326,7 +327,7 @@ export const portfolioData: {
       },
       images: [
         {
-          src: "/images/projects/biomark-dashboard.svg",
+          src: "/images/projects/biomarking1.webp",
           alt: "Biomark doctor platform screenshot",
           label: "Doctor workflow",
           featured: true,
@@ -375,10 +376,34 @@ export const portfolioData: {
       },
       images: [
         {
-          src: "/images/projects/xquic-dashboard.svg",
+          src: "/images/projects/xquic1.webp",
           alt: "As One Management and Xquic operations dashboard screenshot",
           label: "Operations dashboard",
           featured: true,
+        },
+        {
+          src: "/images/projects/xquic2.png",
+          alt: "As One Management and Xquic operations dashboard screenshot",
+          label: "Operations dashboard",
+          featured: false,
+        },
+        {
+          src: "/images/projects/xquic3.png",
+          alt: "As One Management and Xquic operations dashboard screenshot",
+          label: "Operations dashboard",
+          featured: false,
+        },
+        {
+          src: "/images/projects/xquic4.png",
+          alt: "As One Management and Xquic operations dashboard screenshot",
+          label: "Operations dashboard",
+          featured: false,
+        },
+         {
+          src: "/images/projects/xquic5.webp",
+          alt: "As One Management and Xquic operations dashboard screenshot",
+          label: "Operations dashboard",
+          featured: false,
         },
       ],
       tech: [
