@@ -9,14 +9,15 @@ import { SkillsSection } from "@/components/skills-section";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg)] text-[var(--color-text)]">
-          
-
+    <div className="page-chrome relative min-h-screen overflow-x-hidden bg-[var(--color-bg)] text-[var(--color-text)]">
       <div className="pointer-events-none absolute inset-0 opacity-80">
         <div className="tech-grid absolute inset-0" />
         <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,_rgba(65,224,255,0.18),_transparent_42%),radial-gradient(circle_at_top_right,_rgba(142,92,255,0.18),_transparent_35%)]" />
         <div className="absolute inset-x-0 bottom-0 h-[40rem] bg-[radial-gradient(circle_at_bottom,_rgba(0,255,163,0.12),_transparent_38%)]" />
       </div>
+      <div className="page-aurora page-aurora-a" />
+      <div className="page-aurora page-aurora-b" />
+      <div className="page-aurora page-aurora-c" />
 
       <SiteHeader />
 

@@ -38,8 +38,9 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,24,0.94),rgba(5,8,18,0.86))] px-5 py-8 sm:px-8 sm:py-10 lg:px-10"
+      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,11,31,0.96),rgba(6,9,20,0.92))] px-5 py-8 shadow-[0_0_80px_rgba(35,16,62,0.22)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
     >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(255,120,190,0.16),transparent_26%),radial-gradient(circle_at_90%_18%,rgba(132,92,255,0.18),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(65,224,255,0.08),transparent_32%)]" />
       <Reveal>
         <SectionHeading
           eyebrow="Selected Work"

@@ -10,8 +10,9 @@ export function EducationSection({ entries }: EducationSectionProps) {
   return (
     <section
       id="academia"
-      className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,24,0.94),rgba(5,8,18,0.86))] px-5 py-8 sm:px-8 sm:py-10 lg:px-10"
+      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,17,28,0.96),rgba(5,10,20,0.92))] px-5 py-8 shadow-[0_0_80px_rgba(0,89,122,0.16)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
     >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_18%,rgba(65,224,255,0.16),transparent_24%),radial-gradient(circle_at_88%_15%,rgba(0,255,163,0.14),transparent_22%),radial-gradient(circle_at_40%_100%,rgba(255,205,96,0.08),transparent_32%)]" />
       <Reveal>
         <SectionHeading
           eyebrow="Academia"
