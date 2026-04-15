@@ -72,7 +72,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-[var(--color-text-soft)] transition hover:text-white"
+              className="site-nav-link"
             >
               {item.label}
             </a>
