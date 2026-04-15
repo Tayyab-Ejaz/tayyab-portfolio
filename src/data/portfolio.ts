@@ -39,6 +39,13 @@ export type ProjectTag = {
   label: string;
 };
 
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  label: string;
+  featured?: boolean;
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -55,6 +62,7 @@ export type Project = {
     accent: string;
     overlay: string;
   };
+  images: ProjectImage[];
   tech: string[];
   impactTags: ProjectTag[];
   period: string;
@@ -131,20 +139,21 @@ export const portfolioData: {
       icon: "</>",
       description: "Interfaces that stay fast, responsive, and product-minded.",
       skills: [
+        { name: "Next.js" },
+        { name: "React" },
         { name: "HTML" },
         { name: "CSS" },
         { name: "SCSS" },
         { name: "Bootstrap" },
         { name: "MUI" },
         { name: "JavaScript" },
-        { name: "React" },
         { name: "Vue.js" },
         { name: "jQuery" },
         { name: "ES6" },
         { name: "Redux" },
         { name: "Responsive Design" },
         { name: "d3.js" },
-        { name: "Maps" },
+        { name: "Maps / Leaflet.js" },
       ],
     },
     {
@@ -260,6 +269,19 @@ export const portfolioData: {
         accent: "from-cyan-400/50 via-sky-500/20 to-transparent",
         overlay: "tracking • auth • seo",
       },
+      images: [
+        {
+          src: "/images/projects/mytoolkitt-home.svg",
+          alt: "MyToolkitt homepage screenshot",
+          label: "Homepage",
+          featured: true,
+        },{
+          src: "/images/projects/biomark-dashboard.svg",
+          alt: "MyToolkitt homepage screenshot",
+          label: "Homepage",
+          featured: true,
+        },
+      ],
       tech: [
         "Next.js 16",
         "TypeScript",
@@ -302,6 +324,14 @@ export const portfolioData: {
         accent: "from-emerald-400/45 via-cyan-500/20 to-transparent",
         overlay: "hl7 • sidekiq • shopify",
       },
+      images: [
+        {
+          src: "/images/projects/biomark-dashboard.svg",
+          alt: "Biomark doctor platform screenshot",
+          label: "Doctor workflow",
+          featured: true,
+        },
+      ],
       tech: [
         "ReactJS",
         "Ruby on Rails",
@@ -343,6 +373,14 @@ export const portfolioData: {
         accent: "from-fuchsia-400/45 via-violet-500/20 to-transparent",
         overlay: "search • rspec • s3",
       },
+      images: [
+        {
+          src: "/images/projects/xquic-dashboard.svg",
+          alt: "As One Management and Xquic operations dashboard screenshot",
+          label: "Operations dashboard",
+          featured: true,
+        },
+      ],
       tech: [
         "Ruby on Rails",
         "Sidekiq",
@@ -383,6 +421,14 @@ export const portfolioData: {
         accent: "from-amber-300/45 via-orange-500/20 to-transparent",
         overlay: "midi • upload • analytics",
       },
+      images: [
+        {
+          src: "/images/projects/pianofor-analytics.svg",
+          alt: "Pianofor AI analytics and upload workflow screenshot",
+          label: "Analytics view",
+          featured: true,
+        },
+      ],
       tech: [
         "Ruby on Rails",
         "JavaScript",
@@ -420,6 +466,14 @@ export const portfolioData: {
         accent: "from-blue-400/45 via-indigo-500/20 to-transparent",
         overlay: "valuation • lambda • redux",
       },
+      images: [
+        {
+          src: "/images/projects/optimal-biz-value.svg",
+          alt: "Optimal Biz Value valuation estimator screenshot",
+          label: "Estimator flow",
+          featured: true,
+        },
+      ],
       tech: ["React", "Redux Toolkit", "Node.js", "AWS Lambda"],
       impactTags: [
         { label: "Serverless flow" },

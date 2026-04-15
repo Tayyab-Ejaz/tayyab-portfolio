@@ -1,0 +1,30 @@
+<svg width="900" height="1800" viewBox="0 0 900 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1800" rx="42" fill="#1A1206"/>
+  <rect x="28" y="28" width="844" height="1744" rx="34" fill="url(#bg)"/>
+  <rect x="64" y="72" width="772" height="56" rx="18" fill="#2F1E0C"/>
+  <circle cx="106" cy="100" r="8" fill="#FF8D73"/>
+  <circle cx="132" cy="100" r="8" fill="#FFCB64"/>
+  <circle cx="158" cy="100" r="8" fill="#64E4CE"/>
+  <rect x="64" y="168" width="772" height="212" rx="30" fill="#34210D"/>
+  <rect x="64" y="410" width="772" height="260" rx="30" fill="#241608"/>
+  <rect x="64" y="700" width="254" height="312" rx="26" fill="#2F1A08"/>
+  <rect x="342" y="700" width="494" height="312" rx="26" fill="#2A190B"/>
+  <rect x="64" y="1042" width="772" height="576" rx="30" fill="#231509"/>
+  <text x="96" y="230" fill="#FFF7EC" font-family="Arial, sans-serif" font-size="40" font-weight="700">Pianofor.ai</text>
+  <text x="96" y="278" fill="#FFD49F" font-family="Arial, sans-serif" font-size="20">Uploads, MIDI parsing, music analytics, and AI-adjacent exploration</text>
+  <rect x="96" y="314" width="164" height="14" rx="7" fill="#FFB355"/>
+  <rect x="96" y="458" width="192" height="16" rx="8" fill="#FFF7EC"/>
+  <rect x="96" y="498" width="248" height="12" rx="6" fill="#FFD79E"/>
+  <rect x="96" y="546" width="708" height="92" rx="18" fill="#38210A"/>
+  <rect x="96" y="754" width="160" height="16" rx="8" fill="#FFF7EC"/>
+  <rect x="374" y="754" width="184" height="16" rx="8" fill="#FFF7EC"/>
+  <rect x="96" y="1098" width="214" height="16" rx="8" fill="#FFF7EC"/>
+  <rect x="96" y="1140" width="298" height="12" rx="6" fill="#FFCE7D"/>
+  <rect x="96" y="1186" width="708" height="366" rx="22" fill="#3A220D"/>
+  <defs>
+    <linearGradient id="bg" x1="450" y1="28" x2="450" y2="1772" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#241606"/>
+      <stop offset="1" stop-color="#170F05"/>
+    </linearGradient>
+  </defs>
+</svg>

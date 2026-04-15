@@ -1,0 +1,34 @@
+<svg width="900" height="1800" viewBox="0 0 900 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1800" rx="42" fill="#08151B"/>
+  <rect x="28" y="28" width="844" height="1744" rx="34" fill="url(#bg)"/>
+  <rect x="64" y="72" width="772" height="56" rx="18" fill="#0E252B"/>
+  <circle cx="106" cy="100" r="8" fill="#FF7A8A"/>
+  <circle cx="132" cy="100" r="8" fill="#FFC65C"/>
+  <circle cx="158" cy="100" r="8" fill="#33E6B5"/>
+  <rect x="64" y="168" width="772" height="186" rx="30" fill="#10313A"/>
+  <rect x="64" y="384" width="242" height="250" rx="26" fill="#0F2A30"/>
+  <rect x="330" y="384" width="506" height="250" rx="26" fill="#133740"/>
+  <rect x="64" y="664" width="772" height="438" rx="30" fill="#0E2530"/>
+  <rect x="64" y="1132" width="368" height="486" rx="30" fill="#102B34"/>
+  <rect x="456" y="1132" width="380" height="486" rx="30" fill="#112D3A"/>
+  <text x="96" y="228" fill="#F4FBFF" font-family="Arial, sans-serif" font-size="40" font-weight="700">Biomark</text>
+  <text x="96" y="274" fill="#A7FFF1" font-family="Arial, sans-serif" font-size="20">Doctor workflow, labs, e-ordering, and care coordination</text>
+  <rect x="96" y="306" width="160" height="14" rx="7" fill="#2EE6C9"/>
+  <rect x="96" y="428" width="146" height="16" rx="8" fill="#F4FBFF"/>
+  <rect x="96" y="466" width="122" height="12" rx="6" fill="#85FFE5"/>
+  <rect x="362" y="428" width="170" height="16" rx="8" fill="#F4FBFF"/>
+  <rect x="362" y="466" width="250" height="12" rx="6" fill="#88E7FF"/>
+  <rect x="96" y="716" width="228" height="16" rx="8" fill="#F4FBFF"/>
+  <rect x="96" y="756" width="344" height="12" rx="6" fill="#80E8FF"/>
+  <rect x="96" y="804" width="708" height="230" rx="22" fill="#133E4D"/>
+  <rect x="96" y="1188" width="182" height="16" rx="8" fill="#F4FBFF"/>
+  <rect x="96" y="1228" width="230" height="12" rx="6" fill="#95FFE6"/>
+  <rect x="488" y="1188" width="210" height="16" rx="8" fill="#F4FBFF"/>
+  <rect x="488" y="1228" width="210" height="12" rx="6" fill="#9BD9FF"/>
+  <defs>
+    <linearGradient id="bg" x1="450" y1="28" x2="450" y2="1772" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1C22"/>
+      <stop offset="1" stop-color="#081419"/>
+    </linearGradient>
+  </defs>
+</svg>

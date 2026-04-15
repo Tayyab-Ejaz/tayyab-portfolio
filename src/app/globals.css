@@ -39,6 +39,8 @@ body {
   background: transparent;
   overflow-x: hidden;
   color: var(--color-text);
+  scrollbar-color: rgba(46, 197, 255, 0.72) rgba(255, 255, 255, 0.06);
+  scrollbar-width: thin;
 }
 
 a {
@@ -58,6 +60,25 @@ button {
 ::selection {
   background: rgba(65, 224, 255, 0.25);
   color: #fff;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(8, 12, 24, 0.88);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(0, 201, 139, 0.95), rgba(46, 197, 255, 0.95));
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(46, 197, 255, 1), rgba(0, 201, 139, 1));
 }
 
 .page-chrome {
@@ -209,6 +230,18 @@ button {
   box-shadow:
     0 0 0 1px rgba(46, 197, 255, 0.1),
     0 12px 32px rgba(0, 201, 139, 0.08);
+}
+
+.button-compact {
+  min-height: 2.35rem;
+  padding: 0.58rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.button-disabled {
+  pointer-events: none;
+  opacity: 0.52;
 }
 
 .terminal-shell {
@@ -657,8 +690,8 @@ button {
   align-items: center;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.45rem 0.8rem;
-  font-size: 0.85rem;
+  padding: 0.24rem 0.52rem;
+  font-size: 0.68rem;
 }
 
 .skill-pill {
@@ -708,6 +741,286 @@ button {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.04),
     0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.project-shot-shell {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  border-radius: 1.55rem;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.project-shot-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.42;
+}
+
+.project-shot-browser {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(10, 15, 30, 0.86), rgba(6, 9, 20, 0.92)),
+    rgba(6, 9, 20, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.project-shot-toolbar {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.85rem 0.95rem 0;
+}
+
+.project-shot-toolbar span {
+  height: 0.6rem;
+  width: 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.project-shot-toolbar span:first-child {
+  background: rgba(255, 118, 136, 0.9);
+}
+
+.project-shot-toolbar span:nth-child(2) {
+  background: rgba(255, 199, 94, 0.9);
+}
+
+.project-shot-toolbar span:last-child {
+  background: rgba(46, 229, 180, 0.9);
+}
+
+.project-shot-preview {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  padding: 0.85rem;
+}
+
+.project-shot-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-category-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.32rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 248, 255, 0.92);
+}
+
+.project-overlay-copy {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.project-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 248, 255, 0.9);
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.project-card-arrow span:last-child {
+  display: inline-flex;
+  font-size: 1.05rem;
+  transition: transform 180ms ease;
+}
+
+.project-card-arrow:hover {
+  color: #ffffff;
+  text-shadow: 0 0 18px rgba(46, 197, 255, 0.18);
+}
+
+.project-card-arrow:hover span:last-child {
+  transform: translate(3px, -3px);
+}
+
+.project-slider-shell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.project-gallery-stage {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 1.35rem;
+  background: transparent;
+  padding: 0;
+}
+
+.project-gallery-frame {
+  height: clamp(15rem, 42dvh, 30rem);
+  overflow: hidden;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(10, 15, 30, 0.82), rgba(6, 10, 22, 0.94)),
+    rgba(6, 10, 22, 0.96);
+  padding: 0.75rem;
+}
+
+.project-gallery-nav {
+  display: inline-flex;
+  height: 2.6rem;
+  width: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1;
+  backdrop-filter: blur(10px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.project-gallery-nav:hover {
+  transform: translateY(-1px);
+  border-color: rgba(46, 197, 255, 0.26);
+  background: rgba(46, 197, 255, 0.12);
+}
+
+.project-gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  object-fit: contain;
+  object-position: top center;
+}
+
+.project-thumb {
+  flex: 0 0 auto;
+  width: 6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.35rem;
+  text-align: left;
+}
+
+.project-thumb.is-active {
+  border-color: rgba(46, 197, 255, 0.26);
+  box-shadow: 0 0 0 1px rgba(46, 197, 255, 0.1);
+}
+
+.project-thumb-frame {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-thumb-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-gallery-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.project-thumb-row {
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding-bottom: 0.2rem;
+}
+
+.project-lightbox-scroll {
+  max-height: calc(92vh - 2rem);
+  overflow: auto;
+  border-radius: 1.2rem;
+}
+
+.project-lightbox-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+@media (max-width: 639px) {
+  .project-slider-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-gallery-stage {
+    order: 1;
+  }
+
+  .project-gallery-nav-prev {
+    order: 2;
+  }
+
+  .project-gallery-nav-next {
+    order: 3;
+  }
+
+  .project-gallery-frame {
+    height: clamp(11rem, 28dvh, 16rem);
+    padding: 0.75rem;
+  }
+
+  .project-gallery-image {
+    height: 100%;
+  }
+
+  .project-gallery-nav {
+    margin-top: 0.4rem;
+  }
+
+  .project-thumb-frame {
+    aspect-ratio: 4 / 5;
+  }
 }
 
 .skill-showcase {

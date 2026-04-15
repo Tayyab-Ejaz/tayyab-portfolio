@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { type Project } from "@/data/portfolio";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+import { type Project, type ProjectImage } from "@/data/portfolio";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -14,16 +15,29 @@ const INITIAL_VISIBLE = 6;
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [lightboxImage, setLightboxImage] = useState<ProjectImage | null>(null);
+
+  const getFeaturedProjectImage = (project: Project) =>
+    project.images.find((image) => image.featured) ?? project.images[0];
 
   useEffect(() => {
-    if (!activeProject) {
+    if (!activeProject && !lightboxImage) {
+      document.body.style.overflow = "";
       return;
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setActiveProject(null);
+      if (event.key !== "Escape") {
+        return;
       }
+
+      if (lightboxImage) {
+        setLightboxImage(null);
+        return;
+      }
+
+      setActiveProject(null);
     };
 
     document.body.style.overflow = "hidden";
@@ -33,83 +47,141 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeProject]);
+  }, [activeProject, lightboxImage]);
+
+  const visibleProjects = useMemo(
+    () => projects.slice(0, visibleCount),
+    [projects, visibleCount],
+  );
+
+  const openProject = (project: Project) => {
+    setActiveProject(project);
+    const featuredIndex = project.images.findIndex((image) => image.featured);
+    setActiveImageIndex(featuredIndex >= 0 ? featuredIndex : 0);
+  };
+
+  const closeProject = () => {
+    setLightboxImage(null);
+    setActiveImageIndex(0);
+    setActiveProject(null);
+  };
+
+  const activeGalleryImage =
+    activeProject?.images[activeImageIndex] ?? null;
+
+  const showPreviousImage = () => {
+    if (!activeProject) {
+      return;
+    }
+
+    setActiveImageIndex((current) =>
+      current === 0 ? activeProject.images.length - 1 : current - 1,
+    );
+  };
+
+  const showNextImage = () => {
+    if (!activeProject) {
+      return;
+    }
+
+    setActiveImageIndex((current) =>
+      current === activeProject.images.length - 1 ? 0 : current + 1,
+    );
+  };
 
   return (
     <section
       id="projects"
-      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,11,31,0.96),rgba(6,9,20,0.92))] px-5 py-8 shadow-[0_0_80px_rgba(35,16,62,0.22)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
+      className="section-tone-rose relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,11,31,0.96),rgba(6,9,20,0.92))] px-5 py-8 shadow-[0_0_80px_rgba(35,16,62,0.22)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(255,120,190,0.16),transparent_26%),radial-gradient(circle_at_90%_18%,rgba(132,92,255,0.18),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(65,224,255,0.08),transparent_32%)]" />
       <Reveal>
         <SectionHeading
-          eyebrow="Selected Work"
-          title="Product systems built for real users, real workflows, and real constraints"
-          description="The grid highlights SaaS platforms, healthcare tooling, analytics products, and AI-adjacent builds with equal attention to engineering impact and product outcomes."
+          eyebrow="PROJECTS"
+          title="Product systems with room for the actual interface to show"
+          description="The project cards now highlight real page visuals first, with support for featured screenshots, gallery images, and detail views that work well even for long page captures."
         />
       </Reveal>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {projects.slice(0, visibleCount).map((project, index) => (
-          <Reveal key={project.id} className={index % 3 === 1 ? "delay-100" : index % 3 === 2 ? "delay-200" : ""}>
-            <article className="project-card group h-full">
-              <div
-                className={`relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-gradient-to-br ${project.featuredImage.accent} p-5`}
-              >
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,13,24,0.18),rgba(4,8,18,0.92))]" />
-                <div className="relative flex min-h-44 flex-col justify-between">
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="rounded-full border border-white/15 bg-black/20 px-3 py-1 text-xs uppercase tracking-[0.2em] text-[var(--color-text)]">
-                      {project.id}
-                    </span>
-                    <span className="rounded-full border border-white/15 bg-black/30 px-3 py-1 text-xs uppercase tracking-[0.22em] text-[var(--color-accent)]">
-                      {project.category}
-                    </span>
-                  </div>
-                  <p className="max-w-[14rem] text-xs uppercase tracking-[0.35em] text-[var(--color-text-soft)]">
-                    {project.featuredImage.overlay}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-5">
-                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-text-soft)]">
-                  {project.summary}
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.impactTags.map((tag) => (
-                    <span key={tag.label} className="tag-pill">
-                      {tag.label}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.slice(0, 5).map((item) => (
-                    <span key={item} className="tech-pill">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 flex items-center justify-between">
-                <div className="text-xs uppercase tracking-[0.24em] text-[var(--color-text-soft)]">
-                  {project.period}
-                </div>
+        {visibleProjects.map((project, index) => {
+          const featuredImage = getFeaturedProjectImage(project);
+          return (
+            <Reveal
+              key={project.id}
+              className={index % 3 === 1 ? "delay-100" : index % 3 === 2 ? "delay-200" : ""}
+            >
+              <article className="project-card group h-full">
                 <button
                   type="button"
-                  className="button-secondary px-4 py-2 text-sm"
-                  onClick={() => setActiveProject(project)}
+                  className="project-shot-shell"
+                  onClick={() => openProject(project)}
+                  aria-label={`View screenshots and details for ${project.title}`}
                 >
-                  Open Project
+                  <div className={`project-shot-glow bg-gradient-to-br ${project.featuredImage.accent}`} />
+                  <div className="project-shot-browser">
+                    <div className="project-shot-toolbar">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                    <div className="project-shot-preview">
+                      <Image
+                        src={featuredImage.src}
+                        alt={featuredImage.alt}
+                        width={900}
+                        height={1800}
+                        className="project-shot-image"
+                      />
+                    </div>
+                  </div>
                 </button>
-              </div>
-            </article>
-          </Reveal>
-        ))}
+
+                <div className="mt-5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="project-category-pill">{project.category}</span>
+                  </div>
+
+                  <h3 className="mt-4 text-xl font-semibold text-white">{project.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+                    {project.summary}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {project.impactTags.map((tag) => (
+                      <span key={tag.label} className="tag-pill">
+                        {tag.label}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {project.tech.slice(0, 5).map((item) => (
+                      <span key={item} className="tech-pill">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <p className="text-[0.68rem] uppercase tracking-[0.22em] text-[var(--color-text-soft)]">
+                    {project.period}
+                  </p>
+                  <button
+                    type="button"
+                    className="project-card-arrow"
+                    onClick={() => openProject(project)}
+                    aria-label={`View ${project.title}`}
+                  >
+                    <span>View</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </article>
+            </Reveal>
+          );
+        })}
       </div>
 
       {visibleCount < projects.length ? (
@@ -126,99 +198,223 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {activeProject ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-sm"
+          className="fixed inset-x-0 bottom-4 top-24 z-[60] flex items-start justify-center bg-slate-950/72 p-4 backdrop-blur-xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
-          onClick={() => setActiveProject(null)}
+          onClick={closeProject}
         >
           <div
-            className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,16,34,1),rgba(6,10,22,0.98))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.45)] sm:p-8"
+            className="max-h-full w-full max-w-6xl overflow-y-auto rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,16,34,1),rgba(6,10,22,0.98))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.45)] xl:h-full xl:overflow-hidden sm:p-8"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent)]">
-                  {activeProject.category}
-                </p>
-                <h3 id="project-modal-title" className="mt-3 text-3xl font-semibold text-white">
-                  {activeProject.title}
-                </h3>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-muted)]">
-                  {activeProject.description}
-                </p>
-              </div>
-              <button
-                type="button"
-                className="icon-close"
-                onClick={() => setActiveProject(null)}
-                aria-label="Close project details"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="glass-card p-4">
-                <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
-                  Role
-                </p>
-                <p className="mt-2 text-white">{activeProject.role}</p>
-              </div>
-              <div className="glass-card p-4">
-                <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
-                  Timeline
-                </p>
-                <p className="mt-2 text-white">{activeProject.period}</p>
-              </div>
-              <div className="glass-card p-4">
-                <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
-                  Location
-                </p>
-                <p className="mt-2 text-white">{activeProject.location}</p>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
-                What I Delivered
-              </p>
-              <div className="mt-4 grid gap-3">
-                {activeProject.details.map((detail) => (
-                  <div key={detail} className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-3 text-sm leading-7 text-[var(--color-text)]">
-                    {detail}
+            <div className="grid gap-8 xl:h-full xl:min-h-0 xl:grid-cols-[1.08fr_0.92fr]">
+              <div className="min-h-0 xl:max-h-full xl:overflow-y-auto xl:pr-1">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent)]">
+                      {activeProject.category}
+                    </p>
+                    <h3 id="project-modal-title" className="mt-3 text-3xl font-semibold text-white">
+                      {activeProject.title}
+                    </h3>
+                    <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-muted)]">
+                      {activeProject.description}
+                    </p>
                   </div>
-                ))}
+                  <button
+                    type="button"
+                    className="icon-close shrink-0"
+                    onClick={closeProject}
+                    aria-label="Close project details"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                {activeGalleryImage ? (
+                  <div className="mt-8 min-h-0">
+                    <div className="project-slider-shell">
+                      {activeProject.images.length > 1 ? (
+                        <button
+                          type="button"
+                          className="project-gallery-nav project-gallery-nav-prev"
+                          onClick={showPreviousImage}
+                          aria-label="Previous project image"
+                        >
+                          ‹
+                        </button>
+                      ) : null}
+
+                      <button
+                        type="button"
+                        className="project-gallery-stage"
+                        onClick={() => setLightboxImage(activeGalleryImage)}
+                      >
+                        <div className="project-gallery-frame">
+                          <Image
+                            src={activeGalleryImage.src}
+                            alt={activeGalleryImage.alt}
+                            width={900}
+                            height={1800}
+                            className="project-gallery-image"
+                          />
+                        </div>
+                      </button>
+
+                      {activeProject.images.length > 1 ? (
+                        <button
+                          type="button"
+                          className="project-gallery-nav project-gallery-nav-next"
+                          onClick={showNextImage}
+                          aria-label="Next project image"
+                        >
+                          ›
+                        </button>
+                      ) : null}
+                    </div>
+
+                    <div className="mt-3 flex items-center justify-between gap-4">
+                      <span className="project-gallery-meta">
+                        {activeGalleryImage.label}
+                      </span>
+                      <span className="project-gallery-meta">
+                        {activeImageIndex + 1} / {activeProject.images.length}
+                      </span>
+                    </div>
+
+                    {activeProject.images.length > 1 ? (
+                      <div className="project-thumb-row">
+                        {activeProject.images.map((image, index) => (
+                          <button
+                            key={image.src}
+                            type="button"
+                            className={`project-thumb ${
+                              activeGalleryImage.src === image.src ? "is-active" : ""
+                            }`}
+                            onClick={() => setActiveImageIndex(index)}
+                          >
+                            <div className="project-thumb-frame">
+                              <Image
+                                src={image.src}
+                                alt={image.alt}
+                                width={900}
+                                height={1800}
+                                className="project-thumb-image"
+                              />
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="min-h-0 xl:max-h-full xl:overflow-y-auto xl:pr-1">
+                <div className="grid gap-4 sm:grid-cols-3 xl:grid-cols-3">
+                  <div className="glass-card p-4">
+                    <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
+                      Role
+                    </p>
+                    <p className="mt-2 text-white">{activeProject.role}</p>
+                  </div>
+                  <div className="glass-card p-4">
+                    <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
+                      Timeline
+                    </p>
+                    <p className="mt-2 text-white">{activeProject.period}</p>
+                  </div>
+                  <div className="glass-card p-4">
+                    <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
+                      Location
+                    </p>
+                    <p className="mt-2 text-white">{activeProject.location}</p>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
+                    Tech Stack
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {activeProject.tech.map((item) => (
+                      <span key={item} className="tech-pill">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {activeProject.links.live ? (
+                    <a
+                      href={activeProject.links.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="button-primary button-compact"
+                    >
+                      Live View
+                    </a>
+                  ) : null}
+                  <button
+                    type="button"
+                    className="button-secondary button-compact"
+                    onClick={closeProject}
+                  >
+                    Back
+                  </button>
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
+                    What I Delivered
+                  </p>
+                  <div className="mt-4 grid gap-3">
+                    {activeProject.details.map((detail) => (
+                      <div
+                        key={detail}
+                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-3 text-sm leading-7 text-[var(--color-text)]"
+                      >
+                        {detail}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      ) : null}
 
-            <div className="mt-8">
-              <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
-                Tech Stack
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {activeProject.tech.map((item) => (
-                  <span key={item} className="tech-pill">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {activeProject.links.live ? (
-                <a
-                  href={activeProject.links.live}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="button-primary"
-                >
-                  Visit Project
-                </a>
-              ) : null}
-              <button type="button" className="button-secondary" onClick={() => setActiveProject(null)}>
-                Back to Grid
-              </button>
+      {lightboxImage ? (
+        <div
+          className="fixed inset-x-0 bottom-4 top-24 z-[70] flex items-start justify-center bg-slate-950/82 p-4 backdrop-blur-xl"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project image viewer"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div
+            className="relative h-full w-full max-w-5xl overflow-hidden rounded-[1.8rem] border border-white/12 bg-[rgba(6,10,22,0.96)] p-4 shadow-[0_40px_120px_rgba(0,0,0,0.45)]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="icon-close absolute right-4 top-4 z-10"
+              onClick={() => setLightboxImage(null)}
+              aria-label="Close project image"
+            >
+              ×
+            </button>
+            <div className="project-lightbox-scroll">
+              <Image
+                src={lightboxImage.src}
+                alt={lightboxImage.alt}
+                width={900}
+                height={1800}
+                className="project-lightbox-image"
+              />
             </div>
           </div>
         </div>
