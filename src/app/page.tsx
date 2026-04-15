@@ -6,15 +6,11 @@ import { HeroSection } from "@/components/hero-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { SiteHeader } from "@/components/site-header";
 import { SkillsSection } from "@/components/skills-section";
-import HelloButton from "@/components/hello-button";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg)] text-[var(--color-text)]">
-      <HelloButton>
-
-      </HelloButton>
-{/*     
+          
 
       <div className="pointer-events-none absolute inset-0 opacity-80">
         <div className="tech-grid absolute inset-0" />
@@ -31,7 +27,7 @@ export default function Home() {
         <EducationSection entries={portfolioData.education} />
       </main>
 
-      <ContactModal profile={portfolioData.profile} /> */}
+      <ContactModal profile={portfolioData.profile} />
     </div>
   );
 }
