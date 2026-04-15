@@ -1,3 +1,4 @@
+// "use client";
 import { portfolioData } from "@/data/portfolio";
 import { ContactModal } from "@/components/contact-modal";
 import { EducationSection } from "@/components/education-section";
@@ -5,10 +6,16 @@ import { HeroSection } from "@/components/hero-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { SiteHeader } from "@/components/site-header";
 import { SkillsSection } from "@/components/skills-section";
+import HelloButton from "@/components/hello-button";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg)] text-[var(--color-text)]">
+      <HelloButton>
+
+      </HelloButton>
+{/*     
+
       <div className="pointer-events-none absolute inset-0 opacity-80">
         <div className="tech-grid absolute inset-0" />
         <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(circle_at_top_left,_rgba(65,224,255,0.18),_transparent_42%),radial-gradient(circle_at_top_right,_rgba(142,92,255,0.18),_transparent_35%)]" />
@@ -24,7 +31,7 @@ export default function Home() {
         <EducationSection entries={portfolioData.education} />
       </main>
 
-      <ContactModal profile={portfolioData.profile} />
+      <ContactModal profile={portfolioData.profile} /> */}
     </div>
   );
 }

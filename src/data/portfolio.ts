@@ -375,7 +375,7 @@ export const portfolioData: {
     {
       institution: "Punjab University College of Information Technology",
       degree: "Bachelor of Computer Science",
-      period: "June 2018 - July 2022",
+      period: "June 2017 - July 2021",
       location: "Lahore, Pakistan",
       summary:
         "Built a strong systems and application foundation with coursework spanning software engineering, data, mobile, and operating systems.",
@@ -386,8 +386,7 @@ export const portfolioData: {
         "Enterprise Application Development",
         "Mobile Computing",
         "Operating Systems",
-        "React Native",
-        "Node.js",
+        "Artificial Intelligence and Machine Learning"
       ],
     },
   ],
