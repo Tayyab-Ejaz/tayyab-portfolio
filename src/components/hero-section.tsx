@@ -248,7 +248,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
               <span className="terminal-dot bg-amber-300" />
               <span className="terminal-dot bg-emerald-400" />
               <span className="ml-4 text-xs uppercase tracking-[0.3em] text-[var(--color-text-soft)]">
-                details.json
+                PORTFOLIO
               </span>
             </div>
 

@@ -43,7 +43,12 @@ export type Project = {
   id: string;
   slug: string;
   title: string;
-  category: "SaaS" | "Corporate Website" | "AI Platform" | "HealthTech" | "Analytics";
+  category:
+    | "SaaS"
+    | "Corporate Website"
+    | "AI Platform"
+    | "HealthTech"
+    | "Analytics";
   summary: string;
   description: string;
   featuredImage: {
@@ -94,27 +99,30 @@ export const portfolioData: {
     availability: "Open to remote product, SaaS, and platform engineering work",
     location: "Lahore, Pakistan",
     experienceYears: 5,
-    companiesServed: 12,
+    companiesServed: 5,
     projectsCompleted: 24,
     imageAlt: "Portrait placeholder for Tayyab",
-    detailCommand: "cat details.json",
+    detailCommand: "cat portfolio.json",
     detailJson: {
       name: "Tayyab",
       role: "Full-Stack Engineer",
-      focus: ["SaaS Platforms", "APIs", "Performance", "Product UX"],
-      stack: ["Next.js", "React", "Ruby on Rails", "Python", "PostgreSQL"],
-      experience: 5,
+      focus: ["SaaS Platforms", "APIs", "Performance", "Product Advocate"],
+      stack: ["Next.js", "React", "Ruby on Rails", "Python", "Wordpress"],
+      experience: "5+ years",
       available: true,
-      mode: "Building production-ready digital products",
+      passion: "Building production-ready digital products",
     },
     socialLinks: [
-      { label: "GitHub", href: "#" },
-      { label: "LinkedIn", href: "#" },
+      { label: "GitHub", href: "https://github.com/Tayyab-Ejaz/" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/tayyab-ejaz-soft-eng/",
+      },
     ],
   },
   heroStats: [
-    { label: "Projects Completed", value: 24, suffix: "+" },
-    { label: "Companies Served", value: 12, suffix: "+" },
+    { label: "Projects Completed", value: 10, suffix: "+" },
+    { label: "Companies Served", value: 4, suffix: "" },
     { label: "Years Experience", value: 5, suffix: "+" },
   ],
   skills: [
@@ -142,7 +150,8 @@ export const portfolioData: {
     {
       title: "Backend",
       icon: "{ }",
-      description: "APIs, background jobs, auth flows, and production app logic.",
+      description:
+        "APIs, background jobs, auth flows, and production app logic.",
       skills: [
         { name: "Ruby on Rails" },
         { name: "Python" },
@@ -185,7 +194,8 @@ export const portfolioData: {
     {
       title: "Testing & Quality",
       icon: "✓",
-      description: "Shifting quality left with test coverage and bug reduction.",
+      description:
+        "Shifting quality left with test coverage and bug reduction.",
       skills: [
         { name: "Jest" },
         { name: "Rspec" },
@@ -199,7 +209,8 @@ export const portfolioData: {
     {
       title: "Project & Delivery",
       icon: "::",
-      description: "Shipping across cross-functional teams and delivery cycles.",
+      description:
+        "Shipping across cross-functional teams and delivery cycles.",
       skills: [
         { name: "Jira" },
         { name: "ClickUp" },
@@ -224,7 +235,8 @@ export const portfolioData: {
     {
       title: "Engineering Practices",
       icon: "++",
-      description: "Architecture, API design, and sustainable product execution.",
+      description:
+        "Architecture, API design, and sustainable product execution.",
       skills: [
         { name: "RESTful API Design" },
         { name: "Testing Frameworks" },
@@ -240,15 +252,28 @@ export const portfolioData: {
       slug: "mytoolkitt",
       title: "MyToolkitt.com",
       category: "SaaS",
-      summary: "A modular multi-tool SaaS platform with analytics, auth, and scalable app architecture.",
+      summary:
+        "A modular multi-tool SaaS platform with analytics, auth, and scalable app architecture.",
       description:
         "Built a modern Next.js SaaS product with multiple micro-app style tools, secure user flows, and a reusable UI foundation designed for growth.",
       featuredImage: {
         accent: "from-cyan-400/50 via-sky-500/20 to-transparent",
         overlay: "tracking • auth • seo",
       },
-      tech: ["Next.js 16", "TypeScript", "Prisma", "Clerk", "Tailwind", "shadcn/ui", "Zod"],
-      impactTags: [{ label: "Multi-tool SaaS" }, { label: "Realtime analytics" }, { label: "SEO architecture" }],
+      tech: [
+        "Next.js 16",
+        "TypeScript",
+        "Prisma",
+        "Clerk",
+        "Tailwind",
+        "shadcn/ui",
+        "Zod",
+      ],
+      impactTags: [
+        { label: "Multi-tool SaaS" },
+        { label: "Realtime analytics" },
+        { label: "SEO architecture" },
+      ],
       period: "Recent",
       role: "Full-Stack Developer",
       location: "Remote",
@@ -269,15 +294,27 @@ export const portfolioData: {
       slug: "biomark",
       title: "Biomark",
       category: "HealthTech",
-      summary: "A collaborative healthcare platform connecting doctors, labs, and patients in one workflow.",
+      summary:
+        "A collaborative healthcare platform connecting doctors, labs, and patients in one workflow.",
       description:
         "Enhanced a medical collaboration platform with e-ordering, background processing, and commerce integrations for medical product delivery.",
       featuredImage: {
         accent: "from-emerald-400/45 via-cyan-500/20 to-transparent",
         overlay: "hl7 • sidekiq • shopify",
       },
-      tech: ["ReactJS", "Ruby on Rails", "Shopify API", "AWS", "Sidekiq", "Microservices"],
-      impactTags: [{ label: "Lab ordering" }, { label: "HL7 ingestion" }, { label: "Shopify integration" }],
+      tech: [
+        "ReactJS",
+        "Ruby on Rails",
+        "Shopify API",
+        "AWS",
+        "Sidekiq",
+        "Microservices",
+      ],
+      impactTags: [
+        { label: "Lab ordering" },
+        { label: "HL7 ingestion" },
+        { label: "Shopify integration" },
+      ],
       period: "May 2022 - May 2023",
       role: "Full-Stack Developer",
       location: "Singapore, Remote",
@@ -290,7 +327,7 @@ export const portfolioData: {
         "Used Jira for issue tracking, project planning, and collaboration.",
       ],
       links: {
-        live: "https://www.biomarking.com/products/doctor-platform/"
+        live: "https://www.biomarking.com/products/doctor-platform/",
       },
     },
     {
@@ -298,15 +335,28 @@ export const portfolioData: {
       slug: "as-one-management-xquic",
       title: "As One Management / Xquic",
       category: "Corporate Website",
-      summary: "A hotel management and travel analysis platform focused on performance, contracts, and operations.",
+      summary:
+        "A hotel management and travel analysis platform focused on performance, contracts, and operations.",
       description:
         "Improved reliability, API performance, testing coverage, and large-data processing for a B2B hotel management system.",
       featuredImage: {
         accent: "from-fuchsia-400/45 via-violet-500/20 to-transparent",
         overlay: "search • rspec • s3",
       },
-      tech: ["Ruby on Rails", "Sidekiq", "Heroku", "JavaScript", "jQuery", "Google Cloud APIs", "Elasticsearch"],
-      impactTags: [{ label: "API speedup" }, { label: "OTA optimization" }, { label: "PDF/XML parsing" }],
+      tech: [
+        "Ruby on Rails",
+        "Sidekiq",
+        "Heroku",
+        "JavaScript",
+        "jQuery",
+        "Google Cloud APIs",
+        "Elasticsearch",
+      ],
+      impactTags: [
+        { label: "API speedup" },
+        { label: "OTA optimization" },
+        { label: "PDF/XML parsing" },
+      ],
       period: "Dec 2020 - Apr 2022",
       role: "Full-Stack Developer",
       location: "USA, Remote",
@@ -325,15 +375,26 @@ export const portfolioData: {
       slug: "pianofor-ai",
       title: "Pianofor.ai",
       category: "AI Platform",
-      summary: "A music intelligence product for analytics on musician input and AI-driven generation workflows.",
+      summary:
+        "A music intelligence product for analytics on musician input and AI-driven generation workflows.",
       description:
         "Contributed to an AI-adjacent music platform with custom upload flows, parsing pipelines, and product exploration around generated music.",
       featuredImage: {
         accent: "from-amber-300/45 via-orange-500/20 to-transparent",
         overlay: "midi • upload • analytics",
       },
-      tech: ["Ruby on Rails", "JavaScript", "DropzoneJS", "Postgres", "DigitalOcean"],
-      impactTags: [{ label: "Custom uploader" }, { label: "MIDI parsing" }, { label: "Music analytics" }],
+      tech: [
+        "Ruby on Rails",
+        "JavaScript",
+        "DropzoneJS",
+        "Postgres",
+        "DigitalOcean",
+      ],
+      impactTags: [
+        { label: "Custom uploader" },
+        { label: "MIDI parsing" },
+        { label: "Music analytics" },
+      ],
       period: "Nov 2022 - Jun 2023",
       role: "Full-Stack Developer",
       location: "Remote",
@@ -351,7 +412,8 @@ export const portfolioData: {
       slug: "optimal-biz-value",
       title: "Optimal Biz Value",
       category: "Analytics",
-      summary: "A valuation estimator for companies powered by a React frontend and AWS Lambda functions.",
+      summary:
+        "A valuation estimator for companies powered by a React frontend and AWS Lambda functions.",
       description:
         "Built an estimation workflow that turned business inputs into clear valuation outputs using a modern frontend and serverless compute.",
       featuredImage: {
@@ -359,7 +421,11 @@ export const portfolioData: {
         overlay: "valuation • lambda • redux",
       },
       tech: ["React", "Redux Toolkit", "Node.js", "AWS Lambda"],
-      impactTags: [{ label: "Serverless flow" }, { label: "Business valuation" }, { label: "Interactive UX" }],
+      impactTags: [
+        { label: "Serverless flow" },
+        { label: "Business valuation" },
+        { label: "Interactive UX" },
+      ],
       period: "Jan 2022 - Feb 2022",
       role: "Frontend / Full-Stack Developer",
       location: "Remote",
@@ -388,7 +454,7 @@ export const portfolioData: {
         "Enterprise Application Development",
         "Mobile Computing",
         "Operating Systems",
-        "Artificial Intelligence and Machine Learning"
+        "Artificial Intelligence and Machine Learning",
       ],
     },
   ],
