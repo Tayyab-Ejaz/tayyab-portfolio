@@ -289,7 +289,9 @@ export const portfolioData: {
         "Refactored legacy projects to the latest Ruby version and updated libraries for maintenance and performance.",
         "Used Jira for issue tracking, project planning, and collaboration.",
       ],
-      links: {},
+      links: {
+        live: "https://www.biomarking.com/products/doctor-platform/"
+      },
     },
     {
       id: "P-003",
