@@ -271,6 +271,17 @@ export function HeroSection({ profile }: HeroSectionProps) {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+              <a
+                href="/resume"
+                target="_blank"
+                rel="noreferrer"
+                className="social-chip social-chip-resume"
+              >
+                <span className="social-chip-arrow" aria-hidden="true">
+                  ↓
+                </span>
+                <span>Resume</span>
+              </a>
               {profile.socialLinks.map((link) => (
                 <a
                   key={link.label}
