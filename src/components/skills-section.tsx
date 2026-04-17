@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { type SkillCategory } from "@/data/portfolio";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -6,7 +9,10 @@ type SkillsSectionProps = {
   categories: SkillCategory[];
 };
 
+const INITIAL_SKILL_COUNT = 10;
+
 export function SkillsSection({ categories }: SkillsSectionProps) {
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
   const totalSkills = categories.reduce(
     (count, category) => count + category.skills.length,
     0,
@@ -64,39 +70,62 @@ export function SkillsSection({ categories }: SkillsSectionProps) {
         </Reveal>
 
         <div className="capability-grid">
-          {categories.map((category, index) => (
-            <Reveal
-              key={category.title}
-              className={index % 2 === 0 ? "delay-100" : "delay-200"}
-            >
-              <article className="capability-card">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="icon-badge">{category.icon}</div>
-                  <span className="capability-index">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
+          {categories.map((category, index) => {
+            const isExpanded = expandedCategories[category.title] ?? false;
+            const visibleSkills = isExpanded
+              ? category.skills
+              : category.skills.slice(0, INITIAL_SKILL_COUNT);
+            const hasMoreSkills = category.skills.length > INITIAL_SKILL_COUNT;
 
-                <h3 className="mt-6 text-2xl font-semibold text-[var(--color-text)]">
-                  {category.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
-                  {category.description}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {category.skills.slice(0, 6).map((skill, skillIndex) => (
-                    <span
-                      key={skill.name}
-                      className={skillIndex < 3 ? "skill-pill skill-pill-bright" : "skill-pill"}
-                    >
-                      {skill.name}
+            return (
+              <Reveal
+                key={category.title}
+                className={index % 2 === 0 ? "delay-100" : "delay-200"}
+              >
+                <article className="capability-card">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="icon-badge">{category.icon}</div>
+                    <span className="capability-index">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
-                  ))}
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                  </div>
+
+                  <h3 className="mt-6 text-2xl font-semibold text-[var(--color-text)]">
+                    {category.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+                    {category.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {visibleSkills.map((skill, skillIndex) => (
+                      <span
+                        key={skill.name}
+                        className={skillIndex < 3 ? "skill-pill skill-pill-bright" : "skill-pill"}
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+
+                  {hasMoreSkills ? (
+                    <button
+                      type="button"
+                      className="capability-toggle mt-6"
+                      onClick={() =>
+                        setExpandedCategories((current) => ({
+                          ...current,
+                          [category.title]: !isExpanded,
+                        }))
+                      }
+                    >
+                      {isExpanded ? "Show less" : `Show ${category.skills.length - INITIAL_SKILL_COUNT} more`}
+                    </button>
+                  ) : null}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
