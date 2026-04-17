@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { type SkillCategory } from "@/data/portfolio";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -6,7 +9,10 @@ type SkillsSectionProps = {
   categories: SkillCategory[];
 };
 
+const INITIAL_SKILL_COUNT = 10;
+
 export function SkillsSection({ categories }: SkillsSectionProps) {
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
   const totalSkills = categories.reduce(
     (count, category) => count + category.skills.length,
     0,
@@ -15,93 +21,113 @@ export function SkillsSection({ categories }: SkillsSectionProps) {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,31,0.97),rgba(6,9,22,0.94))] px-5 py-8 shadow-[0_0_80px_rgba(16,24,52,0.24)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
+      className="section-panel section-panel-blue relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(65,224,255,0.14),transparent_24%),radial-gradient(circle_at_90%_18%,rgba(142,92,255,0.14),transparent_26%),radial-gradient(circle_at_50%_100%,rgba(0,255,163,0.08),transparent_30%)]" />
+      <div className="section-overlay section-overlay-blue" />
 
-      <Reveal>
-        <div className="relative grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-10">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+      <div className="relative grid gap-8 xl:grid-cols-[0.84fr_1.16fr] xl:gap-10">
+        <Reveal>
+          <div className="capability-summary-card xl:sticky xl:top-28 xl:self-start">
             <SectionHeading
               eyebrow="Capabilities"
-              title="The stack, organized with a little more clarity"
-              description="This version keeps the section simpler: one compact overview, then a readable breakdown of the areas I work across most often."
+              title="A delivery stack built for product teams that need momentum"
+              description="I work across frontend, backend, data, and delivery systems, with a bias toward maintainable code, clear interfaces, and production-ready outcomes."
             />
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              <div className="glass-card p-4">
-                <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+              <div className="capability-stat-card">
+                <p className="text-xs uppercase tracking-[0.28em] text-[rgba(219,234,254,0.72)]">
                   Tools & technologies
                 </p>
-                <p className="mt-3 text-3xl font-semibold text-white">
+                <p className="mt-3 text-4xl font-semibold text-white">
                   {totalSkills}+
                 </p>
               </div>
-              <div className="glass-card p-4">
-                <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
-                  Working style
+              <div className="capability-stat-card">
+                <p className="text-xs uppercase tracking-[0.28em] text-[rgba(219,234,254,0.72)]">
+                  Focus areas
                 </p>
-                <p className="mt-3 text-base leading-7 text-[var(--color-text-muted)]">
-                  Product-minded, backend-strong, and comfortable across delivery.
+                <p className="mt-3 text-4xl font-semibold text-white">
+                  {categories.length}
                 </p>
               </div>
             </div>
-          </div>
 
-          <div className="grid gap-4">
-            {categories.map((category, index) => (
+            <div className="capability-note-card mt-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-[rgba(219,234,254,0.72)]">
+                What teams rely on
+              </p>
+              <p className="mt-3 text-base leading-7 text-[var(--color-hero-muted)]">
+                Backend-heavy implementation, polished web interfaces, and shipping discipline across architecture, APIs, dashboards, and product refinements.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="capability-note-pill">Product-minded</span>
+                <span className="capability-note-pill">Backend-strong</span>
+                <span className="capability-note-pill">Full-stack delivery</span>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="capability-grid">
+          {categories.map((category, index) => {
+            const isExpanded = expandedCategories[category.title] ?? false;
+            const visibleSkills = isExpanded
+              ? category.skills
+              : category.skills.slice(0, INITIAL_SKILL_COUNT);
+            const hasMoreSkills = category.skills.length > INITIAL_SKILL_COUNT;
+
+            return (
               <Reveal
                 key={category.title}
                 className={index % 2 === 0 ? "delay-100" : "delay-200"}
               >
-                <article className="glass-card relative overflow-hidden p-5 sm:p-6">
-                  <div className="absolute left-0 top-0 h-full w-1 rounded-full bg-[linear-gradient(180deg,var(--color-accent),rgba(142,92,255,0.45),transparent)]" />
-
-                  <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[0.78fr_1.22fr] lg:gap-6">
-                    <div className="pl-2">
-                      <div className="flex items-center gap-4">
-                        <div className="icon-badge">{category.icon}</div>
-                        <div>
-                          <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
-                            Capability {String(index + 1).padStart(2, "0")}
-                          </p>
-                          <h3 className="mt-2 text-2xl font-semibold text-white">
-                            {category.title}
-                          </h3>
-                        </div>
-                      </div>
-
-                      <p className="mt-4 text-sm leading-7 text-[var(--color-text-muted)]">
-                        {category.description}
-                      </p>
-                    </div>
-
-                    <div>
-                      <div className="flex flex-wrap gap-2">
-                        {category.skills.slice(0, 4).map((skill) => (
-                          <span key={skill.name} className="skill-pill border-cyan-300/20 bg-cyan-300/8 text-white">
-                            {skill.name}
-                          </span>
-                        ))}
-                      </div>
-
-                      {category.skills.length > 4 ? (
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {category.skills.slice(4).map((skill) => (
-                            <span key={skill.name} className="skill-pill">
-                              {skill.name}
-                            </span>
-                          ))}
-                        </div>
-                      ) : null}
-                    </div>
+                <article className="capability-card">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="icon-badge">{category.icon}</div>
+                    <span className="capability-index">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
+
+                  <h3 className="mt-6 text-2xl font-semibold text-[var(--color-text)]">
+                    {category.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+                    {category.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {visibleSkills.map((skill, skillIndex) => (
+                      <span
+                        key={skill.name}
+                        className={skillIndex < 3 ? "skill-pill skill-pill-bright" : "skill-pill"}
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+
+                  {hasMoreSkills ? (
+                    <button
+                      type="button"
+                      className="capability-toggle mt-6"
+                      onClick={() =>
+                        setExpandedCategories((current) => ({
+                          ...current,
+                          [category.title]: !isExpanded,
+                        }))
+                      }
+                    >
+                      {isExpanded ? "Show less" : `Show ${category.skills.length - INITIAL_SKILL_COUNT} more`}
+                    </button>
+                  ) : null}
                 </article>
               </Reveal>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }

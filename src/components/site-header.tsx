@@ -38,17 +38,17 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[color:rgba(6,10,24,0.68)] backdrop-blur-xl">
+    <header className="site-header fixed inset-x-0 top-0 z-50 border-b border-[var(--color-border)] bg-[color:rgba(248,250,252,0.82)] backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#about" className="flex items-center gap-3">
-          <span className="inline-flex h-11 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/5 font-mono text-sm text-[var(--color-accent)] shadow-[0_0_24px_rgba(65,224,255,0.18)]">
+          <span className="inline-flex h-11 w-14 items-center justify-center rounded-2xl border border-[rgba(59,130,246,0.16)] bg-[rgba(255,255,255,0.88)] font-mono text-sm text-[var(--color-accent)] shadow-[0_18px_40px_rgba(59,130,246,0.12)]">
             {"<T/>"}
           </span>
           <span>
             <span className="block text-xs uppercase tracking-[0.35em] text-[var(--color-text-soft)]">
               
             </span>
-            <span className="block text-sm font-semibold tracking-[0.18em] text-white">
+            <span className="block text-sm font-semibold tracking-[0.18em] text-[var(--color-text)]">
               Tayyab Ejaz
             </span>
           </span>
@@ -104,7 +104,7 @@ export function SiteHeader() {
               <span className="block text-[0.7rem] uppercase tracking-[0.32em] text-[var(--color-text-soft)]">
                 Navigation
               </span>
-              <span className="mt-2 block text-lg font-semibold text-white">
+              <span className="mt-2 block text-lg font-semibold text-[var(--color-text)]">
                 Tayyab Ejaz
               </span>
             </div>

@@ -178,13 +178,9 @@ export function HeroSection({ profile }: HeroSectionProps) {
   return (
     <section
       id="about"
-      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(145deg,rgba(10,16,34,0.98),rgba(5,8,18,0.92))] px-5 py-8 shadow-[0_0_80px_rgba(17,24,39,0.6)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
+      className="hero-panel relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14"
     >
-      
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(65,224,255,0.12),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(160,90,255,0.14),transparent_30%)]" />
       <div className="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-        
-
         <Reveal>
           <div className="flex h-full flex-col justify-between">
             <div>
@@ -205,13 +201,13 @@ export function HeroSection({ profile }: HeroSectionProps) {
                 </div>
               </div>
 
-              <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl xl:text-6xl">
+              <h1 className="hero-title mt-6 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl xl:text-6xl">
                 {profile.name}
               </h1>
-              <p className="mt-4 max-w-3xl text-xl font-medium leading-8 text-[var(--color-text)] sm:text-2xl">
+              <p className="mt-4 max-w-3xl text-xl font-medium leading-8 text-[var(--color-hero-text)] sm:text-2xl">
                 {profile.title}
               </p>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-hero-muted)] sm:text-lg">
                 {profile.intro}
               </p>
 
@@ -220,19 +216,19 @@ export function HeroSection({ profile }: HeroSectionProps) {
                   Get in Touch
                 </a>
                 <a href="#projects" className="button-secondary">
-                  Projects
+                  View Projects
                 </a>
               </div>
             </div>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {portfolioData.heroStats.map((stat, index) => (
-                <div key={stat.label} className="glass-card p-5">
-                  <p className="text-3xl font-semibold text-white sm:text-4xl">
+                <div key={stat.label} className="hero-stat-card rounded-[1.5rem] p-5">
+                  <p className="hero-stat-value text-3xl font-semibold sm:text-4xl">
                     {visibleStats[index]}
                     {stat.suffix ?? ""}
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-soft)]">
+                  <p className="hero-stat-label mt-2 text-sm leading-6">
                     {stat.label}
                   </p>
                 </div>
@@ -247,13 +243,13 @@ export function HeroSection({ profile }: HeroSectionProps) {
               <span className="terminal-dot bg-rose-400" />
               <span className="terminal-dot bg-amber-300" />
               <span className="terminal-dot bg-emerald-400" />
-              <span className="ml-4 text-xs uppercase tracking-[0.3em] text-[var(--color-text-soft)]">
+              <span className="ml-4 text-xs uppercase tracking-[0.3em] text-[rgba(219,234,254,0.72)]">
                 PORTFOLIO
               </span>
             </div>
 
             <div className="terminal-body">
-              <div className="font-mono text-sm leading-7 text-slate-200">
+              <div className="font-mono text-sm leading-7 text-[var(--color-hero-muted)]">
                 <span className="text-[var(--color-accent)]">$ </span>
                 {typedCommand}
                 <span className="terminal-cursor" aria-hidden="true" />
@@ -275,6 +271,17 @@ export function HeroSection({ profile }: HeroSectionProps) {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+              <a
+                href="/resume"
+                target="_blank"
+                rel="noreferrer"
+                className="social-chip social-chip-resume"
+              >
+                <span className="social-chip-arrow" aria-hidden="true">
+                  ↓
+                </span>
+                <span>Resume</span>
+              </a>
               {profile.socialLinks.map((link) => (
                 <a
                   key={link.label}

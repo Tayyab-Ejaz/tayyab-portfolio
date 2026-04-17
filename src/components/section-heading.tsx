@@ -14,7 +14,7 @@ export function SectionHeading({
       <p className="section-eyebrow text-sm font-medium uppercase tracking-[0.35em] text-[var(--color-accent)]">
         {eyebrow}
       </p>
-      <h2 className="section-title mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      <h2 className="section-title mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
         {title}
       </h2>
       <p className="section-description mt-4 text-base leading-7 text-[var(--color-text-muted)] sm:text-lg">

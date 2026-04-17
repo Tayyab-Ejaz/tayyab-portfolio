@@ -92,18 +92,18 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className="section-tone-rose relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,11,31,0.96),rgba(6,9,20,0.92))] px-5 py-8 shadow-[0_0_80px_rgba(35,16,62,0.22)] sm:px-8 sm:py-10 lg:px-10 lg:py-12"
+      className="section-panel section-panel-rose relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(255,120,190,0.16),transparent_26%),radial-gradient(circle_at_90%_18%,rgba(132,92,255,0.18),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(65,224,255,0.08),transparent_32%)]" />
+      <div className="section-overlay section-overlay-rose" />
       <Reveal>
         <SectionHeading
           eyebrow="PROJECTS"
-          title="Product systems with room for the actual interface to show"
-          description="The project cards now highlight real page visuals first, with support for featured screenshots, gallery images, and detail views that work well even for long page captures."
+          title="Selected work shaped like real product stories, not just tiles"
+          description="A grid of project cards that keeps the visuals, outcomes, and technologies easy to scan while still opening into full case-study detail views."
         />
       </Reveal>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {visibleProjects.map((project, index) => {
           const featuredImage = getFeaturedProjectImage(project);
           return (
@@ -142,7 +142,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     <span className="project-category-pill">{project.category}</span>
                   </div>
 
-                  <h3 className="mt-4 text-xl font-semibold text-white">{project.title}</h3>
+                  <h3 className="mt-4 text-xl font-semibold text-[var(--color-text)]">{project.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
                     {project.summary}
                   </p>
@@ -198,14 +198,14 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {activeProject ? (
         <div
-          className="fixed inset-x-0 bottom-4 top-24 z-[60] flex items-start justify-center bg-slate-950/72 p-4 backdrop-blur-xl"
+          className="modal-overlay fixed inset-x-0 bottom-4 top-24 z-[60] flex items-start justify-center p-4 backdrop-blur-xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
           onClick={closeProject}
         >
           <div
-            className="max-h-full w-full max-w-6xl overflow-y-auto rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,16,34,1),rgba(6,10,22,0.98))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.45)] xl:h-full xl:overflow-hidden sm:p-8"
+            className="modal-surface max-h-full w-full max-w-6xl overflow-y-auto rounded-[2rem] p-6 xl:h-full xl:overflow-hidden sm:p-8"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="grid gap-8 xl:h-full xl:min-h-0 xl:grid-cols-[1.08fr_0.92fr]">
@@ -215,7 +215,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent)]">
                       {activeProject.category}
                     </p>
-                    <h3 id="project-modal-title" className="mt-3 text-3xl font-semibold text-white">
+                    <h3 id="project-modal-title" className="mt-3 text-3xl font-semibold text-[var(--color-text)]">
                       {activeProject.title}
                     </h3>
                     <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-muted)]">
@@ -317,19 +317,19 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
                       Role
                     </p>
-                    <p className="mt-2 text-white">{activeProject.role}</p>
+                    <p className="mt-2 text-[var(--color-text)]">{activeProject.role}</p>
                   </div>
                   <div className="glass-card p-4">
                     <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
                       Timeline
                     </p>
-                    <p className="mt-2 text-white">{activeProject.period}</p>
+                    <p className="mt-2 text-[var(--color-text)]">{activeProject.period}</p>
                   </div>
                   <div className="glass-card p-4">
                     <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
                       Location
                     </p>
-                    <p className="mt-2 text-white">{activeProject.location}</p>
+                    <p className="mt-2 text-[var(--color-text)]">{activeProject.location}</p>
                   </div>
                 </div>
 
@@ -374,7 +374,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     {activeProject.details.map((detail) => (
                       <div
                         key={detail}
-                        className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-3 text-sm leading-7 text-[var(--color-text)]"
+                        className="rounded-[1.25rem] border border-[var(--color-border)] bg-[rgba(248,250,252,0.92)] px-4 py-3 text-sm leading-7 text-[var(--color-text)]"
                       >
                         {detail}
                       </div>
@@ -389,14 +389,14 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {lightboxImage ? (
         <div
-          className="fixed inset-x-0 bottom-4 top-24 z-[70] flex items-start justify-center bg-slate-950/82 p-4 backdrop-blur-xl"
+          className="modal-overlay fixed inset-x-0 bottom-4 top-24 z-[70] flex items-start justify-center p-4 backdrop-blur-xl"
           role="dialog"
           aria-modal="true"
           aria-label="Project image viewer"
           onClick={() => setLightboxImage(null)}
         >
           <div
-            className="relative h-full w-full max-w-5xl overflow-hidden rounded-[1.8rem] border border-white/12 bg-[rgba(6,10,22,0.96)] p-4 shadow-[0_40px_120px_rgba(0,0,0,0.45)]"
+            className="modal-surface relative h-full w-full max-w-5xl overflow-hidden rounded-[1.8rem] p-4"
             onClick={(event) => event.stopPropagation()}
           >
             <button

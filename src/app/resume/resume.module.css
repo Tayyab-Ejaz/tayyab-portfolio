@@ -1,0 +1,393 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.1), transparent 22%),
+    linear-gradient(180deg, #edf4ff 0%, #f7fbff 100%);
+  color: #0f172a;
+}
+
+.viewport {
+  overflow-x: auto;
+  padding: 7rem 1.25rem 2.5rem;
+}
+
+.shell {
+  width: 1040px;
+  margin: 0 auto;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.toolbarMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.toolbarChip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  background: rgba(255, 255, 255, 0.84);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+.toolbarActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.sheet {
+  background: #ffffff;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 1.9rem;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.1);
+  overflow: hidden;
+}
+
+.sheetHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 0.38fr);
+  gap: 1.4rem;
+  padding: 1.6rem 1.7rem;
+  background:
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.2), transparent 26%),
+    linear-gradient(135deg, #081b44 0%, #0d2a68 100%);
+  color: #eaf2ff;
+}
+
+.identity {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.42rem 0.78rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(234, 242, 255, 0.86);
+}
+
+.title {
+  margin: 0.8rem 0 0;
+  font-size: 2.45rem;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.role {
+  margin: 0.75rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: rgba(226, 236, 255, 0.88);
+}
+
+.summary {
+  margin: 0.8rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.72;
+  color: rgba(226, 236, 255, 0.78);
+}
+
+.headerAside {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+}
+
+.contactCard {
+  border-radius: 1.35rem;
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.9rem 1rem;
+}
+
+.contactLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(226, 236, 255, 0.72);
+}
+
+.contactValue {
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.contactLinks a {
+  color: #dbeafe;
+  text-decoration: none;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+  gap: 0;
+}
+
+.sidebar {
+  padding: 1.25rem 1.1rem 1.35rem;
+  border-right: 1px solid rgba(37, 99, 235, 0.1);
+  background:
+    linear-gradient(180deg, rgba(248, 251, 255, 0.98), rgba(243, 248, 255, 0.98));
+}
+
+.content {
+  padding: 1.25rem 1.2rem 1.35rem;
+}
+
+.section {
+  break-inside: avoid;
+}
+
+.section + .section {
+  margin-top: 1rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.highlightGrid {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.highlightCard {
+  border-radius: 1.2rem;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.8rem 0.88rem;
+}
+
+.highlightValue {
+  font-size: 1.16rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.highlightLabel {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.skillGroup + .skillGroup {
+  margin-top: 0.75rem;
+}
+
+.skillGroupTitle {
+  margin: 0 0 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.36rem;
+}
+
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  background: rgba(239, 246, 255, 0.88);
+  padding: 0.22rem 0.5rem;
+  font-size: 0.65rem;
+  color: #1d4ed8;
+}
+
+.educationCard {
+  border-radius: 1.2rem;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.85rem;
+}
+
+.educationTitle {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.educationMeta {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.educationSummary {
+  margin-top: 0.55rem;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.experienceList {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.experienceCard {
+  break-inside: avoid;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0.85rem 0.95rem;
+}
+
+.experienceHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experienceTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.experienceMeta {
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.experienceBadge {
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  background: rgba(239, 246, 255, 0.88);
+  padding: 0.28rem 0.55rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+  white-space: nowrap;
+}
+
+.experienceSummary {
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.detailList {
+  margin: 0.5rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.detailList li {
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem;
+  margin-top: 0.55rem;
+}
+
+.techChip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  background: rgba(248, 251, 255, 0.96);
+  padding: 0.22rem 0.48rem;
+  font-size: 0.64rem;
+  color: #334155;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+
+  :global(html),
+  :global(body) {
+    background: #ffffff !important;
+  }
+
+  .page {
+    background: #ffffff;
+  }
+
+  .viewport {
+    overflow: visible;
+    padding: 0;
+  }
+
+  .shell {
+    width: 100%;
+  }
+
+  .toolbar {
+    display: none;
+  }
+
+  .sheet {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .sheetHeader {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .main {
+    grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+  }
+
+  .section {
+    break-inside: auto;
+  }
+}
