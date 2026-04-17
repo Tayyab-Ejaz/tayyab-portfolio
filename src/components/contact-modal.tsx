@@ -80,30 +80,50 @@ export function ContactModal({ profile }: ContactModalProps) {
   return (
     <>
       <section id="contact" className="relative z-10 mx-auto mt-6 w-full max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,24,0.96),rgba(7,10,20,0.92))] px-6 py-8 sm:px-8 sm:py-10 lg:flex lg:items-end lg:justify-between lg:px-10">
+        <div className="contact-banner">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-accent)]">
               Let&apos;s Build
             </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="contact-banner-title mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
               Have a product, platform, or workflow that needs strong engineering behind it?
             </h2>
-            <p className="mt-4 text-base leading-7 text-[var(--color-text-muted)] sm:text-lg">
+            <p className="mt-4 text-base leading-7 text-[var(--color-hero-muted)] sm:text-lg">
               I work with teams that care about shipping clean systems, improving performance, and turning rough ideas into production-ready experiences.
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="contact-pill">{profile.availability}</span>
+              <span className="contact-pill">{profile.location}</span>
+            </div>
           </div>
 
-          <a href="#contact-form" className="button-primary mt-8 lg:mt-0">
-            Start a Project Conversation
-          </a>
+          <div className="contact-action-stack">
+            <a href="#contact-form" className="button-primary">
+              Start a Project Conversation
+            </a>
+            <div className="flex flex-wrap gap-3">
+              {profile.socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="button-secondary"
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <div id="contact-form" className="modal-target fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm">
+      <div id="contact-form" className="modal-target modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
         <a href="#contact" className="absolute inset-0" aria-label="Close contact form" />
           <div
             ref={dialogRef}
-            className="modal-panel relative w-full max-w-2xl rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,16,34,1),rgba(6,10,22,0.98))] p-6 shadow-[0_40px_120px_rgba(0,0,0,0.45)] sm:p-8"
+            className="modal-panel modal-surface relative w-full max-w-2xl rounded-[2rem] p-6 sm:p-8"
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
@@ -113,7 +133,7 @@ export function ContactModal({ profile }: ContactModalProps) {
                 <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)]">
                   Get in Touch
                 </p>
-                <h3 id="contact-modal-title" className="mt-3 text-3xl font-semibold text-white">
+                <h3 id="contact-modal-title" className="mt-3 text-3xl font-semibold text-[var(--color-text)]">
                   Let&apos;s talk about your next build
                 </h3>
                 <p className="mt-4 max-w-xl text-base leading-7 text-[var(--color-text-muted)]">
@@ -130,9 +150,9 @@ export function ContactModal({ profile }: ContactModalProps) {
             </div>
 
             {submitted ? (
-              <div className="mt-8 rounded-[1.5rem] border border-emerald-400/20 bg-emerald-400/10 p-6">
-                <p className="text-lg font-semibold text-white">Thanks for reaching out.</p>
-                <p className="mt-3 text-sm leading-7 text-emerald-50/90">
+              <div className="mt-8 rounded-[1.5rem] border border-[rgba(59,130,246,0.18)] bg-[rgba(59,130,246,0.08)] p-6">
+                <p className="text-lg font-semibold text-[var(--color-text)]">Thanks for reaching out.</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
                   The backend isn&apos;t connected yet, but the interaction flow is ready. Replace this mock submission with a real API or email action in the next step.
                 </p>
               </div>
