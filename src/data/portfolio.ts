@@ -239,59 +239,167 @@ export const portfolioData: {
   ],
   projects: [
     {
-      id: "P-001",
-      slug: "mytoolkitt",
-      title: "MyToolkitt.com",
-      category: "SaaS",
+      id: "P-006",
+      slug: "spcfz-platform",
+      title: "Sharjah Publishing City Free Zone",
+      category: "Corporate Website",
       summary:
-        "A modular multi-tool SaaS platform with analytics, auth, and scalable app architecture.",
+        "A high-performance government free zone website designed for speed, lead generation, and large-scale campaign execution.",
       description:
-        "Built a modern Next.js SaaS product with multiple micro-app style tools, secure user flows, and a reusable UI foundation designed for growth.",
+        "Led development across the official SPC Free Zone platform, shipping custom WordPress solutions, performance improvements, and conversion-focused web experiences during a major growth phase.",
       featuredImage: {
-        accent: "from-cyan-400/50 via-sky-500/20 to-transparent",
-        overlay: "tracking • auth • seo",
+        accent: "from-blue-400/50 via-sky-500/25 to-transparent",
+        overlay: "wordpress • seo • cdn",
       },
       images: [
         {
-          src: "/images/projects/mytoolkitt-home.svg",
-          alt: "MyToolkitt homepage screenshot",
-          label: "Homepage",
+          src: "/images/projects/spcfz/spc-thumbnail (1).webp",
+          alt: "SPCFZ homepage hero and navigation screenshot",
+          label: "Few Glimpses",
           featured: true,
         },
         {
-          src: "/images/projects/biomarking1.webp",
-          alt: "MyToolkitt homepage screenshot",
-          label: "Homepage",
-          featured: true,
+          src: "/images/projects/spcfz/spc1.webp",
+          alt: "SPCFZ extended homepage capture screenshot",
+          label: "Extended homepage capture",
+        },
+        {
+          src: "/images/projects/spcfz/spc2.webp",
+          alt: "SPCFZ extended calculator capture screenshot",
+          label: "Extended calculator capture",
+        },
+        {
+          src: "/images/projects/spcfz/spc 31.webp",
+          alt: "SPCFZ PageSpeed Insights desktop performance score screenshot",
+          label: "PageSpeed 95 score",
+        },
+        {
+          src: "/images/projects/spcfz/spc 32.webp",
+          alt: "SPCFZ Core Web Vitals report screenshot",
+          label: "Core Web Vitals report",
+        },
+
+        {
+          src: "/images/projects/spcfz/spc - 2.webp",
+          alt: "SPCFZ business setup landing page full-page screenshot",
+          label: "Business setup full page",
+        },
+        {
+          src: "/images/projects/spcfz/spc -3 .webp",
+          alt: "SPCFZ cost calculator full-page screenshot",
+          label: "Calculator full page",
+        },
+
+        {
+          src: "/images/projects/spcfz/spc 4.webp",
+          alt: "SPCFZ long-form page capture screenshot",
+          label: "Long-form page",
+        },
+
+        {
+          src: "/images/projects/spcfz/spc 5.webp",
+          alt: "SPCFZ business activities list and saved activities drawer screenshot",
+          label: "Business activities explorer",
+        },
+        {
+          src: "/images/projects/spcfz/spc 6.webp",
+          alt: "SPCFZ saved activities lead form modal screenshot",
+          label: "Saved activities form",
+        },
+        {
+          src: "/images/projects/spcfz/spc 7.webp",
+          alt: "SPCFZ activities list email delivery screenshot",
+          label: "Email delivery flow",
+        },
+        {
+          src: "/images/projects/spcfz/spc 19.webp",
+          alt: "SPCFZ consultation form screenshot",
+          label: "Lead capture form",
+        },
+        {
+          src: "/images/projects/spcfz/spc 10.webp",
+          alt: "SPCFZ Ramadan campaign landing page screenshot",
+          label: "Campaign landing page",
+        },
+        {
+          src: "/images/projects/spcfz/spc 13.webp",
+          alt: "SPCFZ cost calculator business activity selection screenshot",
+          label: "Calculator activity step",
+        },
+        {
+          src: "/images/projects/spcfz/spc 14.webp",
+          alt: "SPCFZ cost calculator banking option step screenshot",
+          label: "Calculator banking step",
+        },
+        {
+          src: "/images/projects/spcfz/spc 15.webp",
+          alt: "SPCFZ cost calculator add-on services step screenshot",
+          label: "Calculator add-ons step",
+        },
+        {
+          src: "/images/projects/spcfz/spc 16.webp",
+          alt: "SPCFZ cost calculator visa quantity step screenshot",
+          label: "Calculator visa step",
+        },
+        {
+          src: "/images/projects/spcfz/spc 17.webp",
+          alt: "SPCFZ cost calculator estimated cost summary screenshot",
+          label: "Calculator summary",
+        },
+        {
+          src: "/images/projects/spcfz/spc 18.webp",
+          alt: "SPCFZ cost calculator detailed pricing breakdown screenshot",
+          label: "Calculator breakdown",
+        },
+        {
+          src: "/images/projects/spcfz/spc - thumnail 2.webp",
+          alt: "Sharjah Publishing City Free Zone exterior brand image",
+          label: "Brand visual",
+        },
+        {
+          src: "/images/projects/spcfz/spc 3.webp",
+          alt: "SPCFZ homepage full-page capture screenshot",
+          label: "Homepage full page",
+        },
+
+        {
+          src: "/images/projects/spcfz/spc 9.webp",
+          alt: "SPCFZ activities list full-page screenshot",
+          label: "Activities full page",
+        },
+        {
+          src: "/images/projects/spcfz/spc.webp",
+          alt: "SPCFZ extended website archive capture screenshot",
+          label: "Extended site capture",
         },
       ],
       tech: [
-        "Next.js 16",
-        "TypeScript",
-        "Prisma",
-        "Clerk",
-        "Tailwind",
-        "shadcn/ui",
-        "Zod",
+        "WordPress",
+        "PHP",
+        "JavaScript",
+        "SCSS",
+        "AWS",
+        "Google Analytics",
+        "GTM",
       ],
       impactTags: [
-        { label: "Multi-tool SaaS" },
-        { label: "Realtime analytics" },
-        { label: "SEO architecture" },
+        { label: "95% performance" },
+        { label: "Custom plugins" },
+        { label: "SEO uplift" },
       ],
-      period: "Recent",
-      role: "Full-Stack Developer",
-      location: "Remote",
+      period: "Jun 2023 - Present",
+      role: "Web Developer & Analytics Specialist",
+      location: "Sharjah, UAE",
       details: [
-        "Built a modular SaaS platform using Next.js 16 App Router, TypeScript, Prisma, and Clerk v6.",
-        "Delivered tools such as a WhatsApp CTA Tracker and URL Shortener with real-time analytics.",
-        "Implemented secure authentication and authorization via Clerk middleware across private dashboards and API routes.",
-        "Designed reusable UI systems with Tailwind and shadcn/ui for consistency across forms, cards, and layouts.",
-        "Created backend APIs with Prisma ORM, including validated payloads, click tracking, and token claim flows.",
-        "Structured the codebase to support multiple micro-apps within one Next.js project.",
+        "Developed and maintained the official spcfz.ae website using modern frontend and CMS workflows.",
+        "Built custom plugins and tailored web modules to support campaign, content, and lead-generation requirements.",
+        "Improved performance from roughly 30 to 95 through optimization, caching strategy, and CDN implementation.",
+        "Engineered a responsive and API-driven cost calculator using PHP and JavaScript for real-time setup fee and license option estimates.",
+        "Supported a major growth phase where platform improvements and better customer engagement aligned with sales growth from 120 to 500 per month.",
+        "Delivered landing pages and marketing support assets across email, WhatsApp, and campaign operations.",
       ],
       links: {
-        live: "https://mytoolkitt.com",
+        live: "https://spcfz.ae",
       },
     },
     {
@@ -415,6 +523,193 @@ export const portfolioData: {
       ],
       links: {},
     },
+    {
+      id: "P-010",
+      slug: "meydan-free-zone",
+      title: "Meydan Free Zone",
+      category: "Corporate Website",
+      summary:
+        "A polished free zone web platform focused on trust, conversion, and high-clarity digital journeys for business setup customers.",
+      description:
+        "Built and maintained the Meydan Free Zone web presence with tailored WordPress development, marketing support, and performance-minded frontend delivery.",
+      featuredImage: {
+        accent: "from-sky-400/45 via-blue-500/20 to-transparent",
+        overlay: "wordpress • campaigns • performance",
+      },
+      images: [
+        {
+          src: "/images/projects/meydan-platform.svg",
+          alt: "Meydan Free Zone corporate website overview screenshot",
+          label: "Meydan platform",
+          featured: true,
+        },
+      ],
+      tech: [
+        "WordPress",
+        "PHP",
+        "JavaScript",
+        "SCSS",
+        "Google Analytics",
+        "GTM",
+      ],
+      impactTags: [
+        { label: "Landing pages" },
+        { label: "Custom modules" },
+        { label: "Lead journeys" },
+      ],
+      period: "Jun 2023 - Present",
+      role: "Web Developer & Analytics Specialist",
+      location: "Sharjah, UAE",
+      details: [
+        "Developed and maintained meydanfz.ae as a conversion-focused corporate platform for free zone business setup journeys.",
+        "Built tailored web modules and campaign landing pages to support marketing and customer acquisition efforts.",
+        "Applied performance-minded frontend practices and analytics integrations to improve usability and measurement across the site.",
+      ],
+      links: {
+        live: "https://meydanfz.ae",
+      },
+    },
+    {
+      id: "P-001",
+      slug: "mytoolkitt",
+      title: "MyToolkitt.com",
+      category: "SaaS",
+      summary:
+        "A modular multi-tool SaaS platform with analytics, auth, and scalable app architecture.",
+      description:
+        "Built a modern Next.js SaaS product with multiple micro-app style tools, secure user flows, and a reusable UI foundation designed for growth.",
+      featuredImage: {
+        accent: "from-cyan-400/50 via-sky-500/20 to-transparent",
+        overlay: "tracking • auth • seo",
+      },
+      images: [
+        {
+          src: "/images/projects/mytoolkitt-home.svg",
+          alt: "MyToolkitt homepage screenshot",
+          label: "Homepage",
+          featured: true,
+        },
+        {
+          src: "/images/projects/biomarking1.webp",
+          alt: "MyToolkitt homepage screenshot",
+          label: "Homepage",
+          featured: true,
+        },
+      ],
+      tech: [
+        "Next.js 16",
+        "TypeScript",
+        "Prisma",
+        "Clerk",
+        "Tailwind",
+        "shadcn/ui",
+        "Zod",
+      ],
+      impactTags: [
+        { label: "Multi-tool SaaS" },
+        { label: "Realtime analytics" },
+        { label: "SEO architecture" },
+      ],
+      period: "Recent",
+      role: "Full-Stack Developer",
+      location: "Remote",
+      details: [
+        "Built a modular SaaS platform using Next.js 16 App Router, TypeScript, Prisma, and Clerk v6.",
+        "Delivered tools such as a WhatsApp CTA Tracker and URL Shortener with real-time analytics.",
+        "Implemented secure authentication and authorization via Clerk middleware across private dashboards and API routes.",
+        "Designed reusable UI systems with Tailwind and shadcn/ui for consistency across forms, cards, and layouts.",
+        "Created backend APIs with Prisma ORM, including validated payloads, click tracking, and token claim flows.",
+        "Structured the codebase to support multiple micro-apps within one Next.js project.",
+      ],
+      links: {
+        live: "https://mytoolkitt.com",
+      },
+    },
+
+    {
+      id: "P-007",
+      slug: "publishers-hub",
+      title: "Publishers Hub",
+      category: "SaaS",
+      summary:
+        "A publisher operations portal connecting WordPress content with Laravel-powered workflows for books, print requests, and reporting.",
+      description:
+        "Built a cross-platform publishing workflow product that gave publishers one place to manage books, submit print requests, and review analytics through a Laravel and WordPress integration.",
+      featuredImage: {
+        accent: "from-cyan-300/45 via-blue-500/20 to-transparent",
+        overlay: "laravel • wordpress • dashboards",
+      },
+      images: [
+        {
+          src: "/images/projects/publishers-hub.svg",
+          alt: "Publishers Hub dashboard and workflow overview",
+          label: "Publisher dashboard",
+          featured: true,
+        },
+      ],
+      tech: [
+        "Laravel",
+        "PHP",
+        "WordPress",
+        "JavaScript",
+        "Bootstrap",
+        "Power BI",
+      ],
+      impactTags: [
+        { label: "Book workflows" },
+        { label: "Print requests" },
+        { label: "Embedded analytics" },
+      ],
+      period: "Jun 2023 - Present",
+      role: "Web Developer & Analytics Specialist",
+      location: "Sharjah, UAE",
+      details: [
+        "Developed the Publishers Hub by integrating a Laravel backend with WordPress-driven publishing workflows.",
+        "Enabled publishers to manage books, track print requests, and access analytics in one operational dashboard.",
+        "Connected content, data, and admin flows so business teams could work faster without hopping between disconnected systems.",
+      ],
+      links: {},
+    },
+    {
+      id: "P-008",
+      slug: "instant-license",
+      title: "Instant License",
+      category: "SaaS",
+      summary:
+        "A custom business-license commerce platform that configures packages dynamically from user-selected attributes.",
+      description:
+        "Created a tailored e-commerce-style licensing journey for SPC Free Zone, allowing users to assemble the right business setup package and move through a clearer conversion flow.",
+      featuredImage: {
+        accent: "from-indigo-400/45 via-blue-500/20 to-transparent",
+        overlay: "licenses • ecommerce • workflows",
+      },
+      images: [
+        {
+          src: "/images/projects/instant-license.svg",
+          alt: "Instant License package selection and checkout flow",
+          label: "License configurator",
+          featured: true,
+        },
+      ],
+      tech: ["PHP", "Laravel", "JavaScript", "WordPress", "Zoho One", "Make"],
+      impactTags: [
+        { label: "License configurator" },
+        { label: "Conversion flow" },
+        { label: "CRM routing" },
+      ],
+      period: "Jun 2023 - Present",
+      role: "Web Developer & Analytics Specialist",
+      location: "Sharjah, UAE",
+      details: [
+        "Developed a custom e-commerce platform that lets users purchase tailored business licenses based on selected attributes.",
+        "Integrated business workflows, lead routing, and downstream ops with CRM and automation tooling including Zoho, Zapier, and Make.",
+        "Focused the experience on reducing friction for customers while supporting internal sales and onboarding teams.",
+      ],
+      links: {
+        live: "https://instantlicense.spcfz.ae/",
+      },
+    },
+
     {
       id: "P-004",
       slug: "pianofor-ai",

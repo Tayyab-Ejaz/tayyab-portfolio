@@ -1,0 +1,43 @@
+<svg width="900" height="1800" viewBox="0 0 900 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1800" rx="42" fill="#081523"/>
+  <rect x="28" y="28" width="844" height="1744" rx="34" fill="url(#bg)"/>
+  <rect x="64" y="72" width="772" height="58" rx="20" fill="#11243B"/>
+  <circle cx="108" cy="101" r="8" fill="#FF7A8A"/>
+  <circle cx="134" cy="101" r="8" fill="#FFD06A"/>
+  <circle cx="160" cy="101" r="8" fill="#5EE7B5"/>
+  <rect x="64" y="166" width="772" height="320" rx="34" fill="#0F2742"/>
+  <rect x="100" y="214" width="284" height="26" rx="13" fill="#E8F3FF"/>
+  <rect x="100" y="256" width="224" height="14" rx="7" fill="#93C5FD"/>
+  <rect x="100" y="302" width="178" height="48" rx="18" fill="#2563EB"/>
+  <rect x="412" y="210" width="380" height="232" rx="28" fill="#17385A"/>
+  <rect x="64" y="526" width="372" height="248" rx="30" fill="#112A47"/>
+  <rect x="464" y="526" width="372" height="248" rx="30" fill="#10243D"/>
+  <rect x="64" y="814" width="772" height="284" rx="30" fill="#0F2036"/>
+  <rect x="64" y="1138" width="244" height="520" rx="28" fill="#10243D"/>
+  <rect x="332" y="1138" width="244" height="520" rx="28" fill="#122B47"/>
+  <rect x="600" y="1138" width="236" height="520" rx="28" fill="#13314E"/>
+  <text x="100" y="224" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="44" font-weight="700">SPCFZ</text>
+  <text x="100" y="402" fill="#CFE6FF" font-family="Arial, sans-serif" font-size="22">Sharjah Publishing City Free Zone</text>
+  <text x="100" y="582" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Performance</text>
+  <rect x="100" y="608" width="224" height="16" rx="8" fill="#60A5FA"/>
+  <rect x="100" y="640" width="286" height="14" rx="7" fill="#DCEEFF"/>
+  <text x="500" y="582" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Lead Flow</text>
+  <rect x="500" y="608" width="212" height="16" rx="8" fill="#38BDF8"/>
+  <rect x="500" y="640" width="250" height="14" rx="7" fill="#DCEEFF"/>
+  <text x="98" y="876" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Growth-ready corporate website system</text>
+  <rect x="100" y="912" width="620" height="16" rx="8" fill="#D6E9FF"/>
+  <rect x="100" y="946" width="540" height="14" rx="7" fill="#93C5FD"/>
+  <rect x="100" y="980" width="408" height="14" rx="7" fill="#60A5FA"/>
+  <text x="102" y="1196" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">SEO</text>
+  <text x="370" y="1196" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Speed</text>
+  <text x="638" y="1196" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Campaigns</text>
+  <rect x="100" y="1224" width="172" height="14" rx="7" fill="#BFDBFE"/>
+  <rect x="368" y="1224" width="176" height="14" rx="7" fill="#BFDBFE"/>
+  <rect x="636" y="1224" width="168" height="14" rx="7" fill="#BFDBFE"/>
+  <defs>
+    <linearGradient id="bg" x1="450" y1="28" x2="450" y2="1772" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1B2E"/>
+      <stop offset="1" stop-color="#07111C"/>
+    </linearGradient>
+  </defs>
+</svg>
