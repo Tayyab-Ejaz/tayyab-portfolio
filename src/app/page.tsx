@@ -23,8 +23,8 @@ export default function Home() {
 
       <main className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pb-28 pt-28 sm:px-6 lg:px-8">
         <HeroSection profile={portfolioData.profile} />
-        <SkillsSection categories={portfolioData.skills} />
         <ProjectsSection projects={portfolioData.projects} />
+        <SkillsSection categories={portfolioData.skills} />
         <EducationSection entries={portfolioData.education} />
       </main>
 

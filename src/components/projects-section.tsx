@@ -98,8 +98,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       <Reveal>
         <SectionHeading
           eyebrow="PROJECTS"
-          title="Selected work shaped like real product stories, not just tiles"
-          description="A grid of project cards that keeps the visuals, outcomes, and technologies easy to scan while still opening into full case-study detail views."
+          title="Projects built around product thinking, performance, and real business impact"
+          description="Explore a curated set of projects with clear visuals, measurable outcomes, and the technical decisions behind each build."
         />
       </Reveal>
 
@@ -224,7 +224,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </div>
                   <button
                     type="button"
-                    className="icon-close shrink-0"
+                    className="icon-close project-popup-close shrink-0"
                     onClick={closeProject}
                     aria-label="Close project details"
                   >
@@ -407,12 +407,12 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           onClick={() => setLightboxImage(null)}
         >
           <div
-            className="modal-surface relative h-full w-full max-w-5xl overflow-hidden rounded-[1.8rem] p-4"
+            className="modal-surface project-lightbox-surface relative w-full max-w-5xl overflow-hidden rounded-[1.8rem] p-4"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
-              className="icon-close absolute right-4 top-4 z-10"
+              className="icon-close project-popup-close absolute right-4 top-4 z-10"
               onClick={() => setLightboxImage(null)}
               aria-label="Close project image"
             >
