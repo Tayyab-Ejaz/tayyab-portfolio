@@ -198,29 +198,29 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {activeProject ? (
         <div
-          className="modal-overlay fixed inset-x-0 bottom-4 top-24 z-[60] flex items-start justify-center p-4 backdrop-blur-xl"
+          className="modal-overlay project-modal-overlay fixed inset-x-0 bottom-3 top-3 z-[60] flex items-start justify-center p-2 backdrop-blur-xl sm:bottom-4 sm:top-24 sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
           onClick={closeProject}
         >
           <div
-            className="modal-surface max-h-full w-full max-w-6xl overflow-y-auto rounded-[2rem] p-6 xl:h-full xl:overflow-hidden sm:p-8"
+            className="modal-surface project-modal-surface max-h-full w-full max-w-6xl overflow-y-auto rounded-[1.5rem] p-4 sm:rounded-[2rem] sm:p-6 xl:h-full xl:overflow-hidden xl:p-8"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="grid gap-8 xl:h-full xl:min-h-0 xl:grid-cols-[1.08fr_0.92fr]">
-              <div className="min-h-0 xl:max-h-full xl:overflow-y-auto xl:pr-1">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
+            <div className="project-modal-grid grid gap-6 xl:h-full xl:min-h-0 xl:grid-cols-[1.08fr_0.92fr] xl:gap-8">
+              <div className="project-modal-media min-h-0 xl:max-h-full xl:overflow-y-auto xl:pr-1">
+                <div className="project-modal-heading flex items-start justify-between gap-4">
+                  <div className="min-w-0">
                     <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-accent)]">
                       {activeProject.category}
                     </p>
-                    <h3 id="project-modal-title" className="mt-3 text-3xl font-semibold text-[var(--color-text)]">
+                    <h3
+                      id="project-modal-title"
+                      className="project-modal-title mt-3 text-2xl font-semibold text-[var(--color-text)] sm:text-3xl"
+                    >
                       {activeProject.title}
                     </h3>
-                    <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-muted)]">
-                      {activeProject.description}
-                    </p>
                   </div>
                   <button
                     type="button"
@@ -233,7 +233,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 </div>
 
                 {activeGalleryImage ? (
-                  <div className="mt-8 min-h-0">
+                  <div className="project-modal-gallery mt-6 min-h-0 sm:mt-8">
                     <div className="project-slider-shell">
                       {activeProject.images.length > 1 ? (
                         <button
@@ -274,7 +274,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                       ) : null}
                     </div>
 
-                    <div className="mt-3 flex items-center justify-between gap-4">
+                    <div className="project-gallery-caption mt-3 flex items-center justify-between gap-4">
                       <span className="project-gallery-meta">
                         {activeGalleryImage.label}
                       </span>
@@ -311,8 +311,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                 ) : null}
               </div>
 
-              <div className="min-h-0 xl:max-h-full xl:overflow-y-auto xl:pr-1">
-                <div className="grid gap-4 sm:grid-cols-3 xl:grid-cols-3">
+              <div className="project-modal-details min-h-0 xl:max-h-full xl:overflow-y-auto xl:pr-1">
+                <div className="project-modal-stats grid gap-3 sm:grid-cols-3 xl:grid-cols-3 xl:gap-4">
                   <div className="glass-card p-4">
                     <p className="text-xs uppercase tracking-[0.26em] text-[var(--color-text-soft)]">
                       Role
@@ -335,6 +335,15 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
                 <div className="mt-8">
                   <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
+                    Overview
+                  </p>
+                  <p className="mt-4 text-base leading-7 text-[var(--color-text-muted)]">
+                    {activeProject.description}
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-xs uppercase tracking-[0.28em] text-[var(--color-text-soft)]">
                     Tech Stack
                   </p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
@@ -346,7 +355,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-2">
+                <div className="project-modal-actions mt-8 flex flex-wrap gap-2">
                   {activeProject.links.live ? (
                     <a
                       href={activeProject.links.live}

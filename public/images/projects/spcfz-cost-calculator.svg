@@ -1,0 +1,38 @@
+<svg width="900" height="1800" viewBox="0 0 900 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1800" rx="42" fill="#081523"/>
+  <rect x="28" y="28" width="844" height="1744" rx="34" fill="url(#bg)"/>
+  <rect x="64" y="72" width="772" height="58" rx="20" fill="#11243B"/>
+  <circle cx="108" cy="101" r="8" fill="#FF7A8A"/>
+  <circle cx="134" cy="101" r="8" fill="#FFD06A"/>
+  <circle cx="160" cy="101" r="8" fill="#5EE7B5"/>
+  <rect x="64" y="166" width="420" height="706" rx="34" fill="#102844"/>
+  <rect x="512" y="166" width="324" height="706" rx="34" fill="#0F2138"/>
+  <rect x="64" y="912" width="772" height="300" rx="30" fill="#10253F"/>
+  <rect x="64" y="1252" width="372" height="406" rx="30" fill="#112A47"/>
+  <rect x="464" y="1252" width="372" height="406" rx="30" fill="#13314E"/>
+  <text x="98" y="222" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="40" font-weight="700">Cost Calculator</text>
+  <text x="98" y="268" fill="#D6E9FF" font-family="Arial, sans-serif" font-size="20">Real-time setup cost and license configuration</text>
+  <rect x="98" y="324" width="220" height="18" rx="9" fill="#93C5FD"/>
+  <rect x="98" y="362" width="174" height="50" rx="18" fill="#2563EB"/>
+  <rect x="98" y="454" width="352" height="80" rx="22" fill="#17385A"/>
+  <rect x="98" y="568" width="352" height="80" rx="22" fill="#17385A"/>
+  <rect x="98" y="682" width="352" height="80" rx="22" fill="#17385A"/>
+  <text x="544" y="230" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Analytics</text>
+  <rect x="544" y="270" width="196" height="16" rx="8" fill="#BFDBFE"/>
+  <rect x="544" y="314" width="226" height="144" rx="22" fill="#163B60"/>
+  <rect x="544" y="488" width="226" height="144" rx="22" fill="#184266"/>
+  <rect x="544" y="662" width="226" height="144" rx="22" fill="#1A486E"/>
+  <text x="98" y="980" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Reporting and pricing tools that removed manual effort</text>
+  <rect x="98" y="1018" width="620" height="16" rx="8" fill="#E6F2FF"/>
+  <rect x="98" y="1052" width="554" height="14" rx="7" fill="#93C5FD"/>
+  <text x="98" y="1318" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">40 hrs</text>
+  <text x="498" y="1318" fill="#F8FBFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">ERP / CRM</text>
+  <rect x="98" y="1348" width="176" height="14" rx="7" fill="#BFDBFE"/>
+  <rect x="498" y="1348" width="176" height="14" rx="7" fill="#BFDBFE"/>
+  <defs>
+    <linearGradient id="bg" x1="450" y1="28" x2="450" y2="1772" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1B2E"/>
+      <stop offset="1" stop-color="#07111C"/>
+    </linearGradient>
+  </defs>
+</svg>
