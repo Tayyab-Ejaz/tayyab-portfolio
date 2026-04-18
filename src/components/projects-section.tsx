@@ -198,7 +198,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {activeProject ? (
         <div
-          className="modal-overlay project-modal-overlay fixed inset-x-0 bottom-3 top-3 z-[60] flex items-start justify-center p-2 backdrop-blur-xl sm:bottom-4 sm:top-24 sm:p-4"
+          className="modal-overlay project-modal-overlay fixed inset-x-0 z-[60] flex items-start justify-center backdrop-blur-xl"
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
@@ -252,13 +252,15 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                         onClick={() => setLightboxImage(activeGalleryImage)}
                       >
                         <div className="project-gallery-frame">
-                          <Image
-                            src={activeGalleryImage.src}
-                            alt={activeGalleryImage.alt}
-                            width={900}
-                            height={1800}
-                            className="project-gallery-image"
-                          />
+                          <div className="project-gallery-scroll">
+                            <Image
+                              src={activeGalleryImage.src}
+                              alt={activeGalleryImage.alt}
+                              width={900}
+                              height={1800}
+                              className="project-gallery-image"
+                            />
+                          </div>
                         </div>
                       </button>
 
@@ -398,7 +400,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {lightboxImage ? (
         <div
-          className="modal-overlay fixed inset-x-0 bottom-4 top-24 z-[70] flex items-start justify-center p-4 backdrop-blur-xl"
+          className="modal-overlay project-lightbox-overlay fixed inset-x-0 z-[70] flex items-start justify-center backdrop-blur-xl"
           role="dialog"
           aria-modal="true"
           aria-label="Project image viewer"
