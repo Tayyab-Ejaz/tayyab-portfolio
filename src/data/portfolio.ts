@@ -422,6 +422,21 @@ export const portfolioData: {
           label: "Doctor workflow",
           featured: true,
         },
+        {
+          src: "/images/projects/biomarking/biomarking 2.png",
+          alt: "Biomark platform interface screenshot",
+          label: "Platform view 1",
+        },
+        {
+          src: "/images/projects/biomarking/biomarking 3.png",
+          alt: "Biomark platform workflow screenshot",
+          label: "Platform view 2",
+        },
+        {
+          src: "/images/projects/biomarking/biomarking 4.png",
+          alt: "Biomark healthcare workflow screenshot",
+          label: "Platform view 3",
+        },
       ],
       tech: [
         "ReactJS",
@@ -448,7 +463,7 @@ export const portfolioData: {
         "Used Jira for issue tracking, project planning, and collaboration.",
       ],
       links: {
-        live: "https://www.biomarking.com/products/doctor-platform/",
+        live: "https://my.biomarking.com/login",
       },
     },
     {
@@ -521,7 +536,9 @@ export const portfolioData: {
         "Solved query optimization and database bottleneck issues.",
         "Built interfaces for uploading and managing S3 files and parsed complex PDF/XML sources.",
       ],
-      links: {},
+      links: {
+        live: "http://xquic.com/",
+      },
     },
     {
       id: "P-010",
