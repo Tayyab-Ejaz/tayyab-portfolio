@@ -1457,6 +1457,21 @@ button {
   transform: scale(0.98);
 }
 
+.project-lightbox-surface > .project-popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  left: auto;
+  z-index: 20;
+}
+
+@media (min-width: 40rem) {
+  .project-lightbox-surface > .project-popup-close {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+}
+
 .project-thumb-row {
   display: flex;
   gap: 0.65rem;

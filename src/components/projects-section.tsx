@@ -205,7 +205,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           onClick={closeProject}
         >
           <div
-            className="modal-surface project-modal-surface max-h-full w-full max-w-6xl overflow-y-auto rounded-[1.5rem] p-4 sm:rounded-[2rem] sm:p-6 xl:h-full xl:overflow-hidden xl:p-8"
+            className="modal-surface project-modal-surface relative max-h-full w-full max-w-6xl overflow-y-auto rounded-[1.5rem] p-4 sm:rounded-[2rem] sm:p-6 xl:h-full xl:overflow-hidden xl:p-8"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="project-modal-grid grid gap-6 xl:h-full xl:min-h-0 xl:grid-cols-[1.08fr_0.92fr] xl:gap-8">
