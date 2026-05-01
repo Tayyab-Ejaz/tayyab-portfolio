@@ -541,6 +541,71 @@ export const portfolioData: {
       },
     },
     {
+      id: "P-004",
+      slug: "pianofor-ai",
+      title: "Pianofor.ai",
+      category: "AI Platform",
+      summary:
+        "A music intelligence product for analytics on musician input and AI-driven generation workflows.",
+      description:
+        "Contributed to an AI-adjacent music platform with custom upload flows, parsing pipelines, and product exploration around generated music.",
+      featuredImage: {
+        accent: "from-amber-300/45 via-orange-500/20 to-transparent",
+        overlay: "midi • upload • analytics",
+      },
+      images: [
+        {
+          src: "/images/projects/pionoforai/pianoroll-1.webp",
+          alt: "Pianofor AI piano roll interface screenshot",
+          label: "Piano roll view 1",
+          featured: true,
+        },
+        {
+          src: "/images/projects/pionoforai/pianoroll-2.webp",
+          alt: "Pianofor AI piano roll editor screenshot",
+          label: "Piano roll view 2",
+        },
+        {
+          src: "/images/projects/pionoforai/pianoroll-3.webp",
+          alt: "Pianofor AI music workflow screenshot",
+          label: "Workflow view",
+        },
+        {
+          src: "/images/projects/pionoforai/pianoroll-4.webp",
+          alt: "Pianofor AI music interface detail screenshot",
+          label: "Interface detail",
+        },
+        {
+          src: "/images/projects/pianofor-analytics.svg",
+          alt: "Pianofor AI analytics and upload workflow screenshot",
+          label: "Analytics view",
+        },
+      ],
+      tech: [
+        "Ruby on Rails",
+        "JavaScript",
+        "DropzoneJS",
+        "Postgres",
+        "DigitalOcean",
+      ],
+      impactTags: [
+        { label: "Custom uploader" },
+        { label: "MIDI parsing" },
+        { label: "Music analytics" },
+      ],
+      period: "Nov 2022 - Jun 2023",
+      role: "Full-Stack Developer",
+      location: "Remote",
+      details: [
+        "Created a custom file uploader with Dropzone for a smoother user workflow.",
+        "Used MIDI parsing to extract meaningful music features.",
+        "Helped support the product's dual goals of analytics and AI-based music generation.",
+      ],
+      links: {
+        live: "https://pianofor.ai",
+      },
+    },
+    {
       id: "P-010",
       slug: "meydan-free-zone",
       title: "Meydan Free Zone",
@@ -586,6 +651,7 @@ export const portfolioData: {
         live: "https://meydanfz.ae",
       },
     },
+
     {
       id: "P-001",
       slug: "mytoolkitt",
@@ -742,10 +808,30 @@ export const portfolioData: {
       },
       images: [
         {
+          src: "/images/projects/pionoforai/pianoroll-1.webp",
+          alt: "Pianofor AI piano roll interface screenshot",
+          label: "Piano roll view 1",
+          featured: true,
+        },
+        {
+          src: "/images/projects/pionoforai/pianoroll-2.webp",
+          alt: "Pianofor AI piano roll editor screenshot",
+          label: "Piano roll view 2",
+        },
+        {
+          src: "/images/projects/pionoforai/pianoroll-3.webp",
+          alt: "Pianofor AI music workflow screenshot",
+          label: "Workflow view",
+        },
+        {
+          src: "/images/projects/pionoforai/pianoroll-4.webp",
+          alt: "Pianofor AI music interface detail screenshot",
+          label: "Interface detail",
+        },
+        {
           src: "/images/projects/pianofor-analytics.svg",
           alt: "Pianofor AI analytics and upload workflow screenshot",
           label: "Analytics view",
-          featured: true,
         },
       ],
       tech: [
